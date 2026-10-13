@@ -1266,6 +1266,7 @@ function render() {
   const activeCategory = getActiveCategory();
   const visibleProjects = getVisibleProjects(activeCategory);
   renderNavigation(activeCategory);
+  updateHeroPhoto(activeCategory?.id);
   document.querySelector("#education").hidden = Boolean(activeCategory);
   const categoryIntros = {
     art: "Creative freedom is wonderful",
@@ -1354,7 +1355,6 @@ document.querySelector(".footer-contact").addEventListener("click", async () => 
   }, 2000);
 });
 window.addEventListener("hashchange", render);
-render();
 
 // Canvas avoids the browser's standard Save Image and drag-image actions.
 const heroPhotoFrame = document.querySelector(".hero-photo-frame");
@@ -1374,8 +1374,21 @@ function drawHeroPhoto() {
   context.drawImage(heroPhoto, (heroPhotoCanvas.width - drawWidth) / 2, (heroPhotoCanvas.height - drawHeight) / 2, drawWidth, drawHeight);
 }
 heroPhoto.addEventListener("load", drawHeroPhoto);
-heroPhoto.src = "images/hero/clockwork-portal.png";
+// Assign a section its own hero image; unspecified sections retain the clock.
+const heroPhotos = {
+  "hands-on": "images/hero/hands-on.jpg",
+};
+let currentHeroPhoto;
+function updateHeroPhoto(categoryId) {
+  const source = heroPhotos[categoryId] || "images/hero/clockwork-portal.png";
+  if (source === currentHeroPhoto) return;
+  currentHeroPhoto = source;
+  heroPhotoCanvas.getContext("2d").clearRect(0, 0, heroPhotoCanvas.width, heroPhotoCanvas.height);
+  heroPhoto.src = source;
+}
 new ResizeObserver(drawHeroPhoto).observe(heroPhotoFrame);
 for (const eventName of ["contextmenu", "dragstart"]) {
   heroPhotoFrame.addEventListener(eventName, (event) => event.preventDefault());
 }
+
+render();
