@@ -583,3 +583,6 @@ body.viewer-open { overflow: hidden; }
 
 .education-section { padding-bottom: 48px; }
 .education-section:not([hidden]) + .work-section { padding-top: 42px; }
+
+/* Hide the hero image when the intro switches to a single column. */
+@media (max-width: 760px) { .intro-visual { display: none; } }
