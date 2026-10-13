@@ -24,17 +24,17 @@ const projects = [
     {
       "src": "images/art-9/Contrast.jpg",
       "alt": "Art 9 artwork: Contrast.",
-      "caption": "Contrast.jpg"
+      "caption": "Contrast"
     },
     {
       "src": "images/art-9/Realm.jpg",
       "alt": "Art 9 artwork: Realm.",
-      "caption": "Realm.jpg"
+      "caption": "Realm"
     },
     {
       "src": "images/art-9/starry night.jpg",
       "alt": "Art 9 artwork: starry night.",
-      "caption": "starry night.jpg"
+      "caption": "Starry Night"
     }
   ]
 },
