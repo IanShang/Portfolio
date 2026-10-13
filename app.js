@@ -14,6 +14,21 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "horizontal-tnt-cannon",
+  "category": "minecraft",
+  "date": "2021-02-02",
+  "title": "Horizontal TNT Cannon",
+  "summary": "A Minecraft TNT cannon with a range of 130 blocks when fired horizontally.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/5y_s-n6q-eI",
+      "alt": "Horizontal TNT cannon firing demonstration.",
+      "caption": "Horizontal TNT cannon \u2014 130-block range"
+    }
+  ]
+},
+{
   "id": "vertical-tnt-cannon",
   "category": "minecraft",
   "date": "2021-01-04",
