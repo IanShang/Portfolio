@@ -1122,6 +1122,7 @@ function renderProjectImages(project) {
       frame.src = getVideoEmbedUrl(image.videoUrl);
       frame.title = image.alt || project.title;
       frame.loading = "lazy";
+      frame.setAttribute("scrolling", "no");
       frame.allow = "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
       frame.allowFullscreen = true;
       frame.referrerPolicy = "strict-origin-when-cross-origin";

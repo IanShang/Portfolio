@@ -488,7 +488,7 @@ h2 {
 .project-card .image-window.is-scrollable img { height: auto; }
 .project-card.has-pack .image-window img { max-width: none; max-height: none; }
 
-.project-card .video-window { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.project-card .video-window { display: flex; align-items: center; justify-content: center; overflow: clip; overscroll-behavior: auto; }
 .video-window iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 100%; border: 0; }
 .video-source { display: block; padding: 0 16px 12px; color: var(--accent-soft); font-size: .9rem; }
 .image-carousel .video-source { order: 3; }
