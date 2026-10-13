@@ -1052,8 +1052,9 @@ function renderNavigation(activeCategory) {
 }
 
 function scrollToSectionHeading(targetHeading = heading) {
-  const top = targetHeading.getBoundingClientRect().top + window.scrollY
-    - document.querySelector(".site-header").getBoundingClientRect().height - 24;
+  const headingBlock = targetHeading.closest(".section-heading") || targetHeading;
+  const top = headingBlock.getBoundingClientRect().top + window.scrollY
+    - document.querySelector(".site-header").getBoundingClientRect().height - 32;
   window.scrollTo({ top, behavior: "smooth" });
 }
 
