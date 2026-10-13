@@ -424,7 +424,7 @@ h2 {
 
 .footer-label { display: block; margin-bottom: 6px; color: var(--quiet); font-size: .59rem; }
 .footer-contact { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); font-size: 1.55rem; font-weight: 600; letter-spacing: -.04em; text-decoration: none; }
-.footer-contact span { color: var(--accent); font-size: 1rem; }
+.footer-contact span { color: var(--accent); font-size: inherit; }
 .footer-meta { display: grid; gap: 8px; color: var(--muted); font-size: .9rem; text-align: right; }
 
 @media (min-width: 1200px) {
