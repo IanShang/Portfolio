@@ -578,3 +578,5 @@ body.viewer-open { overflow: hidden; }
 @media (max-width: 380px) { .intro-links { grid-template-columns: 1fr; gap: 24px; } }
 
 .education-details .education-minor { margin-bottom: 0; }
+
+.intro-contacts a svg { width: 20px; height: 20px; flex-shrink: 0; }
