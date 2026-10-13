@@ -535,13 +535,13 @@ body.viewer-open { overflow: hidden; }
 .intro-actions .text-link { margin-top: 0; }
 .education-section[hidden] { display: none; }
 .education-card { grid-template-columns: 1fr; }
-.education-details { padding: clamp(24px, 4vw, 48px) clamp(16px, 2vw, 24px); border-bottom: 1px solid var(--line); }
+.education-details { padding: 20px 12px; border-bottom: 1px solid var(--line); }
 .education-details h3 { margin: 16px 0; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; }
 .education-dates { color: var(--accent); font-family: var(--mono); font-size: .95rem; }
 .education-dates span { color: var(--muted); }
 .education-minor { font-size: 1.1rem; color: var(--muted); }
 .education-certificates { padding-left: 1.2em; color: var(--muted); line-height: 1.8; }
-.education-courses { padding: clamp(20px, 4vw, 48px) clamp(16px, 2vw, 24px); }
+.education-courses { padding: 20px 12px; }
 .education-courses h4 { margin: 0 0 12px; font-size: 1.3rem; }
 .course-note { color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
 .course-grid { display: grid; gap: 32px; }
@@ -576,3 +576,5 @@ body.viewer-open { overflow: hidden; }
 .intro-contacts .email-copy-status { position: absolute; top: 38px; left: 0; }
 .site-footer { justify-content: flex-end; }
 @media (max-width: 380px) { .intro-links { grid-template-columns: 1fr; gap: 24px; } }
+
+.education-details .education-minor { margin-bottom: 0; }
