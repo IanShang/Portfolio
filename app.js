@@ -17,13 +17,13 @@ const projects = [
   "id": "horizontal-tnt-cannon",
   "category": "minecraft",
   "date": "2021-02-02",
-  "title": "Horizontal TNT Cannon",
-  "summary": "A Minecraft TNT cannon with a range of 130 blocks when fired horizontally.",
+  "title": "Dual Mode TNT Cannon",
+  "summary": "A dual-mode Minecraft TNT cannon that attacks both ground and air targets. Its known effective range for ground attacks is 130 blocks; the effective range for air attacks has not been determined.",
   "mediaFormat": "documents",
   "images": [
     {
       "videoUrl": "https://youtu.be/5y_s-n6q-eI",
-      "alt": "Horizontal TNT cannon firing demonstration.",
+      "alt": "Dual mode TNT cannon firing demonstration.",
       "caption": "Horizontal TNT cannon \u2014 130-block range"
     }
   ]
