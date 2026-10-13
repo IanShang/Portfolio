@@ -1355,3 +1355,27 @@ document.querySelector(".footer-contact").addEventListener("click", async () => 
 });
 window.addEventListener("hashchange", render);
 render();
+
+// Canvas avoids the browser's standard Save Image and drag-image actions.
+const heroPhotoFrame = document.querySelector(".hero-photo-frame");
+const heroPhotoCanvas = document.querySelector(".hero-photo");
+const heroPhoto = new Image();
+function drawHeroPhoto() {
+  if (!heroPhoto.naturalWidth) return;
+  const scale = window.devicePixelRatio || 1;
+  const width = heroPhotoFrame.clientWidth;
+  const height = heroPhotoFrame.clientHeight;
+  heroPhotoCanvas.width = Math.round(width * scale);
+  heroPhotoCanvas.height = Math.round(height * scale);
+  const context = heroPhotoCanvas.getContext("2d");
+  const fit = Math.max(heroPhotoCanvas.width / heroPhoto.naturalWidth, heroPhotoCanvas.height / heroPhoto.naturalHeight);
+  const drawWidth = heroPhoto.naturalWidth * fit;
+  const drawHeight = heroPhoto.naturalHeight * fit;
+  context.drawImage(heroPhoto, (heroPhotoCanvas.width - drawWidth) / 2, (heroPhotoCanvas.height - drawHeight) / 2, drawWidth, drawHeight);
+}
+heroPhoto.addEventListener("load", drawHeroPhoto);
+heroPhoto.src = "images/hero/clockwork-portal.png";
+new ResizeObserver(drawHeroPhoto).observe(heroPhotoFrame);
+for (const eventName of ["contextmenu", "dragstart"]) {
+  heroPhotoFrame.addEventListener(eventName, (event) => event.preventDefault());
+}
