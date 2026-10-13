@@ -14,6 +14,36 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "cocoa-bean-farm",
+  "category": "minecraft",
+  "date": "2022-03-31",
+  "title": "Cocoa Bean Farm",
+  "summary": "A Minecraft cocoa bean farm that uses an inverter setup to push 60 jungle logs. The design allows a wide variety of storage options to be implemented.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "src": "images/cocoa-bean-farm/view-1.png",
+      "alt": "Cocoa bean farm overview.",
+      "caption": "Cocoa bean farm overview"
+    },
+    {
+      "src": "images/cocoa-bean-farm/view-2.png",
+      "alt": "Jungle log layout and redstone wiring.",
+      "caption": "Jungle log layout and redstone wiring"
+    },
+    {
+      "src": "images/cocoa-bean-farm/view-3.png",
+      "alt": "Piston arrangement.",
+      "caption": "Piston arrangement"
+    },
+    {
+      "src": "images/cocoa-bean-farm/view-4.png",
+      "alt": "Inverter setup close-up.",
+      "caption": "Inverter setup close-up"
+    }
+  ]
+},
+{
   "id": "horizontal-tnt-cannon",
   "category": "minecraft",
   "date": "2021-02-02",
@@ -512,14 +542,14 @@ const projects = [
       "caption": "Yellow crane tower"
     },
     {
-      "src": "images/photography-summer-2026/new-sunrise-2.jpg",
-      "alt": "Sunrise above city buildings and campus grounds.",
-      "caption": "Sunrise 2 — 2026/07/10"
-    },
-    {
       "src": "images/photography-summer-2026/new-sunrise-1.jpg",
       "alt": "Sunrise above city buildings and campus grounds.",
       "caption": "Sunrise 1 — 2026/07/12"
+    },
+    {
+      "src": "images/photography-summer-2026/new-sunrise-2.jpg",
+      "alt": "Sunrise above city buildings and campus grounds.",
+      "caption": "Sunrise 2 — 2026/07/10"
     }
   ]
 },
