@@ -580,3 +580,6 @@ body.viewer-open { overflow: hidden; }
 .education-details .education-minor { margin-bottom: 0; }
 
 .intro-contacts a svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.education-section { padding-bottom: 48px; }
+.education-section:not([hidden]) + .work-section { padding-top: 42px; }
