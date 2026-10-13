@@ -566,3 +566,13 @@ body.viewer-open { overflow: hidden; }
 .hero-photo-frame { overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .hero-photo-spacer { visibility: hidden; }
 .hero-photo { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+
+.intro-links { display: grid; grid-template-columns: max-content max-content; gap: clamp(20px, 3vw, 48px); align-items: start; margin-top: 32px; }
+.intro-links .intro-actions { margin-top: 0; }
+.intro-contacts { display: grid; justify-items: start; gap: 18px; position: relative; }
+.intro-links a { font-family: var(--sans); font-size: 1.15rem; font-weight: 700; letter-spacing: .02em; min-height: 36px; white-space: nowrap; }
+.intro-contacts .footer-linkedin { margin-top: 0; }
+.intro-contacts a span { font-size: 1.5rem; }
+.intro-contacts .email-copy-status { position: absolute; top: 38px; left: 0; }
+.site-footer { justify-content: flex-end; }
+@media (max-width: 380px) { .intro-links { grid-template-columns: 1fr; gap: 24px; } }
