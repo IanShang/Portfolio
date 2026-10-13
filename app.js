@@ -14,6 +14,21 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "vertical-tnt-cannon",
+  "category": "minecraft",
+  "date": "2021-01-04",
+  "title": "Vertical TNT Cannon",
+  "summary": "A Minecraft TNT cannon that fires vertically, launching TNT 115 blocks upward.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/U0cC9CyFlJ4",
+      "alt": "Vertical TNT cannon firing demonstration.",
+      "caption": "Vertical TNT cannon \u2014 115-block firing height"
+    }
+  ]
+},
+{
   "id": "villager-separator",
   "category": "minecraft",
   "date": "2020-12-30",
