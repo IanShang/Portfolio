@@ -14,6 +14,31 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "art-9",
+  "category": "art",
+  "date": "2021",
+  "title": "Art 9",
+  "summary": "A collection of artwork created in Art 9 in 2021.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "src": "images/art-9/Contrast.jpg",
+      "alt": "Art 9 artwork: Contrast.",
+      "caption": "Contrast.jpg"
+    },
+    {
+      "src": "images/art-9/Realm.jpg",
+      "alt": "Art 9 artwork: Realm.",
+      "caption": "Realm.jpg"
+    },
+    {
+      "src": "images/art-9/starry night.jpg",
+      "alt": "Art 9 artwork: starry night.",
+      "caption": "starry night.jpg"
+    }
+  ]
+},
+{
   "id": "cocoa-bean-farm",
   "category": "minecraft",
   "date": "2022-03-31",
