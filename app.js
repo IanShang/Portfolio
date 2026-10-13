@@ -4,7 +4,6 @@ const categories = [
   { id: "design", label: "Design" },
   { id: "hands-on", label: "Hands On" },
   { id: "models", label: "Models" },
-  { id: "tours", label: "Tours" },
   { id: "minecraft", label: "Minecraft" },
   { id: "photography", label: "Photography" },
   { id: "art", label: "Art" },
@@ -14,56 +13,6 @@ const categories = [
 // Dates use YYYY-MM or YYYY-MM-DD. Leave date null until you know the date.
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
-{
-  "id": "hms-belfast-iwm",
-  "category": "tours",
-  "date": "2023-12-27",
-  "title": "HMS Belfast and Imperial War Museum",
-  "summary": "A visit to HMS Belfast and the Imperial War Museum in London, exploring naval, aircraft, and military history exhibits.",
-  "mediaFormat": "documents",
-  "images": [
-    {
-      "src": "images/hms-belfast-iwm/belfast.jpg",
-      "alt": "HMS Belfast.",
-      "caption": "HMS Belfast"
-    },
-    {
-      "src": "images/hms-belfast-iwm/6in guns.jpg",
-      "alt": "6-inch guns.",
-      "caption": "6-inch guns"
-    },
-    {
-      "src": "images/hms-belfast-iwm/ammo stowage.jpg",
-      "alt": "Ammunition stowage.",
-      "caption": "Ammunition stowage"
-    },
-    {
-      "src": "images/hms-belfast-iwm/Electronic warfare.jpg",
-      "alt": "Electronic warfare.",
-      "caption": "Electronic warfare"
-    },
-    {
-      "src": "images/hms-belfast-iwm/IMW.jpg",
-      "alt": "Imperial War Museum.",
-      "caption": "Imperial War Museum"
-    },
-    {
-      "src": "images/hms-belfast-iwm/aircraft.jpg",
-      "alt": "Aircraft exhibit.",
-      "caption": "Aircraft exhibit"
-    },
-    {
-      "src": "images/hms-belfast-iwm/ohka.jpg",
-      "alt": "Ohka exhibit.",
-      "caption": "Ohka exhibit"
-    },
-    {
-      "src": "images/hms-belfast-iwm/tank.jpg",
-      "alt": "Tank exhibit.",
-      "caption": "Tank exhibit"
-    }
-  ]
-},
 {
   "id": "art-9",
   "category": "art",
@@ -1138,7 +1087,7 @@ function getVisibleProjects(activeCategory) {
     .map((project, originalIndex) => ({ project, originalIndex, order: projectOrder(project) }))
     .filter(({ project }) => activeCategory
       ? project.category === activeCategory.id
-      : !["minecraft", "photography", "art", "tours"].includes(project.category))
+      : !["minecraft", "photography", "art"].includes(project.category))
     .sort((a, b) => {
       if (a.order === null && b.order === null) return a.originalIndex - b.originalIndex;
       if (a.order === null) return 1;
@@ -1346,7 +1295,6 @@ function render() {
   updateHeroPhoto(activeCategory?.id);
   document.querySelector("#education").hidden = Boolean(activeCategory);
   const categoryIntros = {
-    tours: "Visits to museums and places that interest me.",
     art: "Creative freedom is wonderful",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
