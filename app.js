@@ -1470,3 +1470,24 @@ for (const eventName of ["contextmenu", "dragstart"]) {
 }
 
 render();
+
+// Keep corresponding coursework rows aligned when course names wrap.
+const courseworkTables = document.querySelector(".coursework-tables");
+function alignCourseworkRows() {
+  const tables = [...courseworkTables.querySelectorAll("table")];
+  const rows = tables.map((table) => [...table.querySelectorAll("tbody tr")]);
+  for (const column of rows) for (const row of column) row.style.height = "";
+  if (window.matchMedia("(max-width: 800px)").matches) return;
+  for (let index = 0; index < Math.max(...rows.map((column) => column.length)); index++) {
+    const pair = rows.map((column) => column[index]).filter(Boolean);
+    const height = Math.max(...pair.map((row) => row.getBoundingClientRect().height));
+    for (const row of pair) row.style.height = `${height}px`;
+  }
+}
+let courseworkWidth;
+new ResizeObserver(([entry]) => {
+  if (entry.contentRect.width === courseworkWidth) return;
+  courseworkWidth = entry.contentRect.width;
+  alignCourseworkRows();
+}).observe(courseworkTables);
+document.fonts.ready.then(alignCourseworkRows);
