@@ -586,3 +586,5 @@ body.viewer-open { overflow: hidden; }
 
 /* Hide the hero image when the intro switches to a single column. */
 @media (max-width: 760px) { .intro-visual { display: none; } }
+
+.education-details .education-award { margin: 12px 0 0; color: var(--accent); font-size: 1rem; }

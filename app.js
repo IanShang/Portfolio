@@ -1138,7 +1138,7 @@ function getVisibleProjects(activeCategory) {
     .map((project, originalIndex) => ({ project, originalIndex, order: projectOrder(project) }))
     .filter(({ project }) => activeCategory
       ? project.category === activeCategory.id
-      : project.category !== "minecraft")
+      : !["minecraft", "photography", "art", "tours"].includes(project.category))
     .sort((a, b) => {
       if (a.order === null && b.order === null) return a.originalIndex - b.originalIndex;
       if (a.order === null) return 1;
