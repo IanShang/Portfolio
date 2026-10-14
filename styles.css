@@ -588,3 +588,10 @@ body.viewer-open { overflow: hidden; }
 @media (max-width: 760px) { .intro-visual { display: none; } }
 
 .education-details .education-award { margin: 12px 0 0; color: var(--accent); font-size: 1rem; }
+
+.viewer-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 1.7rem; cursor: pointer; }
+.viewer-arrow[hidden] { display: none; }
+.viewer-previous { left: 100px; }
+.viewer-next { right: 100px; }
+.viewer-arrow:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 600px) { .viewer-previous { left: 16px; } .viewer-next { right: 16px; } }

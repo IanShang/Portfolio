@@ -1042,7 +1042,7 @@ const activeSlides = new Map();
 const imageViewer = document.createElement("dialog");
 imageViewer.className = "image-viewer";
 imageViewer.setAttribute("aria-label", "Full image viewer");
-imageViewer.innerHTML = '<button type="button" class="viewer-close" aria-label="Close image viewer">Close ×</button><img class="viewer-image" alt=""><p class="viewer-caption"></p>';
+imageViewer.innerHTML = '<button type="button" class="viewer-close" aria-label="Close image viewer">Close ×</button><img class="viewer-image" alt=""><p class="viewer-caption"></p><button type="button" class="viewer-arrow viewer-previous" aria-label="Previous photo">←</button><button type="button" class="viewer-arrow viewer-next" aria-label="Next photo">→</button>';
 document.body.append(imageViewer);
 imageViewer.querySelector("button").addEventListener("click", () => imageViewer.close());
 imageViewer.addEventListener("click", (event) => {
@@ -1050,11 +1050,33 @@ imageViewer.addEventListener("click", (event) => {
 });
 imageViewer.addEventListener("close", () => document.body.classList.remove("viewer-open"));
 
-function openImage(image) {
+let viewerPhotos = [];
+let viewerPhotoIndex = 0;
+function updateViewerImage() {
+  const image = viewerPhotos[viewerPhotoIndex];
   const fullImage = imageViewer.querySelector("img");
   fullImage.src = image.src;
   fullImage.alt = image.alt;
   imageViewer.querySelector(".viewer-caption").textContent = image.caption || "";
+  for (const arrow of imageViewer.querySelectorAll(".viewer-arrow")) arrow.hidden = viewerPhotos.length < 2;
+}
+function moveViewerPhoto(direction) {
+  if (viewerPhotos.length < 2) return;
+  viewerPhotoIndex = (viewerPhotoIndex + direction + viewerPhotos.length) % viewerPhotos.length;
+  updateViewerImage();
+}
+imageViewer.querySelector(".viewer-previous").addEventListener("click", () => moveViewerPhoto(-1));
+imageViewer.querySelector(".viewer-next").addEventListener("click", () => moveViewerPhoto(1));
+imageViewer.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    event.preventDefault();
+    moveViewerPhoto(event.key === "ArrowLeft" ? -1 : 1);
+  }
+});
+function openImage(image, project) {
+  viewerPhotos = project.images.filter((item) => item.src);
+  viewerPhotoIndex = viewerPhotos.indexOf(image);
+  updateViewerImage();
   imageViewer.showModal();
   document.body.classList.add("viewer-open");
 }
@@ -1207,11 +1229,11 @@ function renderProjectImages(project) {
     img.tabIndex = 0;
     img.setAttribute("role", "button");
     img.setAttribute("aria-label", `View complete image: ${image.alt}`);
-    img.addEventListener("click", () => openImage(image));
+    img.addEventListener("click", () => openImage(image, project));
     img.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openImage(image);
+        openImage(image, project);
       }
     });
     imageWindow.tabIndex = 0;
@@ -1335,7 +1357,7 @@ function render() {
     art: "Creative freedom is wonderful",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
-    photography: "Pictures of scenes I find beautiful",
+    photography: "Scenes worth remembering, captured without professional equipment",
     "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually.",
     minecraft: "Unique Minecraft contraptions, builds, and resource packs designed by me. During my 2026 summer internship, my supervisor kept asking why I design things to be so square and rectangular. I suspect this is why.",
     models: "Trumpeter, Tamiya, and Hasegawa model kits, assembled and spray-painted using techniques I taught myself.",
