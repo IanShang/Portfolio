@@ -17,14 +17,14 @@ const projects = [
   "id": "doomsday-sub",
   "category": "minecraft",
   "date": "2026-08",
-  "title": "Doomsday Sub",
+  "title": "Doomsday Submarine",
   "summary": "A Minecraft submarine built entirely in Survival Mode, equipped to support a crew of 24 on long underwater missions.",
   "mediaFormat": "documents",
   "images": [
     {
       "videoUrl": "https://youtu.be/xgVnDEWRBT8",
-      "alt": "Doomsday Sub demonstration.",
-      "caption": "Doomsday Sub demonstration"
+      "alt": "Doomsday Submarine demonstration.",
+      "caption": "Doomsday Submarine demonstration"
     }
   ],
   "highlights": [
