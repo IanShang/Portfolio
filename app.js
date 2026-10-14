@@ -1321,7 +1321,6 @@ function renderProject(project) {
     link.rel = "noopener noreferrer";
     details.append(link);
   }
-  details.append(createElement("span", "project-number", `LOG / ${String(projects.indexOf(project) + 1).padStart(2, "0")}`));
   article.append(details);
   return article;
 }
