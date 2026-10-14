@@ -28,7 +28,7 @@ const projects = [
     }
   ],
   "highlights": [
-    "Approximately 14,400 m².",
+    "Approximate volume: 14,400 m³.",
     "Accommodates 24 people, each with an individual sleeping compartment and Shulker Box storage.",
     "Sonar at the front and rear detects nearby sounds.",
     "Carries 58 Mending Tridents, some with additional enchantments.",
