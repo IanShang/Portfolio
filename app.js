@@ -1336,7 +1336,7 @@ function render() {
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
     photography: "Pictures of scenes I find beautiful",
     "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually.",
-    minecraft: "Unique Minecraft contraptions, builds, and resource packs designed by me.",
+    minecraft: "Unique Minecraft contraptions, builds, and resource packs designed by me. During my 2026 summer internship, my supervisor kept asking why I design things to be so square and rectangular. I suspect this is why.",
     models: "Trumpeter, Tamiya, and Hasegawa model kits, assembled and spray-painted using techniques I taught myself.",
   };
   introDescription.textContent = categoryIntros[activeCategory?.id] ?? defaultIntroDescription;
