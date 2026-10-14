@@ -915,7 +915,7 @@ const projects = [
   "category": "design",
   "date": "2026-08",
   "title": "Minecraft Biome Classification with a CNN",
-  "summary": "A convolutional neural network that classifies Minecraft screenshots into eight biomes: Basalt Deltas, Crimson Forest, Dripstone Caves, Lush Caves, Mushroom Fields, Soulsand Valley, Sulfur Caves, and Warped Forest. The CNN was compared against color histogram, RGB, ANN, and ResNet models and achieved 84.55% test accuracy. Its architecture uses two convolutional layers with ReLU and max pooling, followed by two fully connected layers for eight-class prediction.",
+  "summary": "A project for APS360 (Applied Fundamentals of Deep Learning) at the University of Toronto: a convolutional neural network that classifies Minecraft screenshots into eight biomes: Basalt Deltas, Crimson Forest, Dripstone Caves, Lush Caves, Mushroom Fields, Soulsand Valley, Sulfur Caves, and Warped Forest. The CNN was compared against color histogram, RGB, ANN, and ResNet models and achieved 84.55% test accuracy. Its architecture uses two convolutional layers with ReLU and max pooling, followed by two fully connected layers for eight-class prediction.",
   "mediaFormat": "documents",
   "images": [
     {
@@ -950,7 +950,7 @@ const projects = [
     category: "design",
     date: "2025-12-02",
     title: "Low Cost, Long-Reach Robot Arm for Cinematography",
-    summary: "A team mechanical design project for MIE243 at the University of Toronto: a six-axis camera arm for beginner filmmakers, designed for a 1.5 kg payload and a 1.2 m reach. The design combines an aluminum structure and 3D-printed components with lead-screw linkages and belt-driven joints. Concept evaluation, SolidWorks motion analysis, and component selection informed an estimated cost of CAD $813.75, excluding electronics.",
+    summary: "A team mechanical design project for MIE243 (Mechanical Engineering Design) at the University of Toronto: a six-axis camera arm for beginner filmmakers, designed for a 1.5 kg payload and a 1.2 m reach. The design combines an aluminum structure and 3D-printed components with lead-screw linkages and belt-driven joints. Concept evaluation, SolidWorks motion analysis, and component selection informed an estimated cost of CAD $813.75, excluding electronics.",
     mediaFormat: "drawings",
     images: [
       {
@@ -1480,6 +1480,31 @@ render();
 
 // Keep corresponding coursework rows aligned when course names wrap.
 const courseworkTables = document.querySelector(".coursework-tables");
+const courseworkColumns = [...courseworkTables.querySelectorAll("table")];
+const courseworkOriginalRows = courseworkColumns.map((table) => [...table.querySelectorAll("tbody tr")]);
+const courseworkChronologicalRows = [];
+for (let index = 0; index < Math.max(...courseworkOriginalRows.map((rows) => rows.length)); index++) {
+  for (const rows of courseworkOriginalRows) if (rows[index]) courseworkChronologicalRows.push(rows[index]);
+}
+const narrowCoursework = window.matchMedia("(max-width: 800px)");
+function arrangeCoursework() {
+  const [left, right] = courseworkColumns;
+  if (narrowCoursework.matches) {
+    left.querySelector("tbody").replaceChildren(...courseworkChronologicalRows);
+    right.querySelector("tbody").replaceChildren();
+    left.setAttribute("aria-label", "Highlighted Coursework");
+    right.hidden = true;
+  } else {
+    courseworkColumns.forEach((table, index) => {
+      table.querySelector("tbody").replaceChildren(...courseworkOriginalRows[index]);
+      table.setAttribute("aria-label", `Coursework, column ${index + 1}`);
+      table.hidden = false;
+    });
+  }
+  alignCourseworkRows();
+}
+narrowCoursework.addEventListener("change", arrangeCoursework);
+
 function alignCourseworkRows() {
   const tables = [...courseworkTables.querySelectorAll("table")];
   const rows = tables.map((table) => [...table.querySelectorAll("tbody tr")]);
@@ -1498,3 +1523,5 @@ new ResizeObserver(([entry]) => {
   alignCourseworkRows();
 }).observe(courseworkTables);
 document.fonts.ready.then(alignCourseworkRows);
+
+arrangeCoursework();
