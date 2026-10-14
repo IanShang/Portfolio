@@ -18,7 +18,7 @@ const projects = [
   "category": "minecraft",
   "date": "2026-08",
   "title": "Doomsday Sub",
-  "summary": "A Minecraft submarine build.",
+  "summary": "A Minecraft submarine built entirely in Survival Mode, equipped to support a crew of 24 on long underwater missions.",
   "mediaFormat": "documents",
   "images": [
     {
@@ -26,6 +26,19 @@ const projects = [
       "alt": "Doomsday Sub demonstration.",
       "caption": "Doomsday Sub demonstration"
     }
+  ],
+  "highlights": [
+    "Approximately 14,400 m².",
+    "Accommodates 24 people, each with an individual sleeping compartment and Shulker Box storage.",
+    "Sonar at the front and rear detects nearby sounds.",
+    "Carries 58 Mending Tridents, some with additional enchantments.",
+    "Four sets of enchanted diving armor.",
+    "Two Conduits for long underwater missions.",
+    "Dining tables seat 12 people.",
+    "Six cooking stations, with 1,152 Blaze Powder, 1,152 Redstone Dust, and 1,152 Glowstone Dust on board.",
+    "Potion brewing area.",
+    "Onboard cows, sheep, chickens, and pigs.",
+    "Onboard farms for all growable crops, Nether Wart, and sugar cane, with six bee nests to accelerate crop growth."
   ]
 },
 {
