@@ -14,6 +14,36 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "doomsday-sub",
+  "category": "minecraft",
+  "date": "2026-08",
+  "title": "Doomsday Sub",
+  "summary": "A Minecraft submarine build.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/xgVnDEWRBT8",
+      "alt": "Doomsday Sub demonstration.",
+      "caption": "Doomsday Sub demonstration"
+    }
+  ]
+},
+{
+  "id": "aa-tnt-cannon",
+  "category": "minecraft",
+  "date": "2020-08-14",
+  "title": "AA Cannon",
+  "summary": "A Minecraft anti-aircraft TNT cannon that fires 100 blocks horizontally and 90 blocks vertically.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/AbCDThrIees",
+      "alt": "AA cannon \u2014 100 blocks horizontal, 90 blocks vertical.",
+      "caption": "AA cannon \u2014 100 blocks horizontal, 90 blocks vertical"
+    }
+  ]
+},
+{
   "id": "art-9",
   "category": "art",
   "date": "2021",
@@ -678,14 +708,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/cat-gifting/overview.png",
-      "alt": "Overhead view of a Minecraft cat gifting mechanism with cats around beds and collection chests.",
-      "caption": "Cat gifting mechanism — overview"
-    },
-    {
-      "src": "images/cat-gifting/collection.png",
-      "alt": "Side view of the cat gifting mechanism showing its collection area and storage chests.",
-      "caption": "Gift collection and storage"
+      "videoUrl": "https://youtu.be/E_xT8J6JhRk",
+      "alt": "Cat gifting mechanism demonstration.",
+      "caption": "Cat gifting mechanism demonstration"
     }
   ]
 },
@@ -703,9 +728,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/honeycomb-farm/farm-view-1.png",
-      "alt": "Minecraft honeycomb farm with repeated hive modules and compact redstone circuitry.",
-      "caption": "Honeycomb farm — ABAB module layout"
+      "videoUrl": "https://youtu.be/94a91W9jKOI",
+      "alt": "Automatic honeycomb farm — ABAB module layout.",
+      "caption": "Automatic honeycomb farm — ABAB module layout"
     }
   ]
 },
@@ -815,8 +840,8 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/minecraft-builds/pool.png",
-      "alt": "Top-down view of a Minecraft pool arena with a blue playing surface, green sides, and corner pockets.",
+      "videoUrl": "https://youtu.be/ctS16BFI0m0",
+      "alt": "Multiplayer pool using momentum and Sulfur Cubes.",
       "caption": "Multiplayer pool using momentum and Sulfur Cubes"
     }
   ]
