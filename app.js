@@ -915,7 +915,7 @@ const projects = [
   "category": "design",
   "date": "2026-08",
   "title": "Minecraft Biome Classification with a CNN",
-  "summary": "A project for APS360 (Applied Fundamentals of Deep Learning) at the University of Toronto: a convolutional neural network that classifies Minecraft screenshots into eight biomes: Basalt Deltas, Crimson Forest, Dripstone Caves, Lush Caves, Mushroom Fields, Soulsand Valley, Sulfur Caves, and Warped Forest. The CNN was compared against color histogram, RGB, ANN, and ResNet models and achieved 84.55% test accuracy. Its architecture uses two convolutional layers with ReLU and max pooling, followed by two fully connected layers for eight-class prediction.",
+  "summary": "A project for APS360 (Applied Fundamentals of Deep Learning) at the University of Toronto: a convolutional neural network that classifies Minecraft screenshots into eight biomes: Basalt Deltas, Crimson Forest, Dripstone Caves, Lush Caves, Mushroom Fields, Soulsand Valley, Sulfur Caves, and Warped Forest. The CNN was compared against color histogram, RGB, ANN, and ResNet models and achieved 84.55% test accuracy. The CNN was also trained with data augmentation, but the augmented-data version was not used as the final model. Its architecture uses two convolutional layers with ReLU and max pooling, followed by two fully connected layers for eight-class prediction.",
   "mediaFormat": "documents",
   "images": [
     {
