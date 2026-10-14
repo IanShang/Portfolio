@@ -16,7 +16,7 @@ const projects = [
 {
   "id": "concrete-converter",
   "category": "minecraft",
-  "date": null,
+  "date": "2024",
   "title": "Semi-Automatic Concrete Converter",
   "summary": "A semi-automatic Minecraft concrete converter design that makes 144 concrete blocks at a time.",
   "mediaFormat": "documents",
