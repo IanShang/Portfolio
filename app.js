@@ -1074,7 +1074,7 @@ function getActiveCategory() {
 function renderNavigation(activeCategory) {
   navRoot.replaceChildren();
   const mainLink = createElement("a", "nav-link", "Main");
-  mainLink.href = "#all";
+  mainLink.href = window.location.pathname + window.location.search;
   mainLink.addEventListener("click", navigateToSection);
   if (!activeCategory) mainLink.setAttribute("aria-current", "page");
   navRoot.append(mainLink);
@@ -1097,7 +1097,7 @@ function scrollToSectionHeading(targetHeading = heading) {
 
 function navigateToSection(event) {
   event.preventDefault();
-  history.pushState(null, "", event.currentTarget.hash);
+  history.pushState(null, "", event.currentTarget.hash || window.location.pathname + window.location.search);
   render();
   scrollToSectionHeading();
 }
@@ -1325,6 +1325,7 @@ function renderProject(project) {
 }
 
 function render() {
+  if (window.location.hash === "#all") history.replaceState(null, "", window.location.pathname + window.location.search);
   const activeCategory = getActiveCategory();
   const visibleProjects = getVisibleProjects(activeCategory);
   renderNavigation(activeCategory);
@@ -1369,11 +1370,11 @@ function render() {
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 document.querySelector(".brand").addEventListener("click", (event) => {
   event.preventDefault();
-  history.pushState(null, "", "#all");
+  history.pushState(null, "", window.location.pathname + window.location.search);
   render();
   window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   requestAnimationFrame(() => {
-    if (window.location.hash === "#all") window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   });
 });
 document.querySelector("#explore-projects").addEventListener("click", (event) => {
