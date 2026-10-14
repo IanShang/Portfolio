@@ -14,6 +14,36 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "concrete-converter",
+  "category": "minecraft",
+  "date": null,
+  "title": "Semi-Automatic Concrete Converter",
+  "summary": "A semi-automatic Minecraft concrete converter design that makes 144 concrete blocks at a time.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/lIsL3PwqI4w",
+      "alt": "Semi-Automatic Concrete Converter demonstration.",
+      "caption": "Semi-Automatic Concrete Converter"
+    }
+  ]
+},
+{
+  "id": "minecraft-bar",
+  "category": "minecraft",
+  "date": "2026-08",
+  "title": "Bar Design",
+  "summary": "I really love it when water parks integrate water into their dining areas as well, so I attempted to make a bar where the customer can dip their feet in water as they enjoy their drinks",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/9ucvShac8NY",
+      "alt": "Bar Design demonstration.",
+      "caption": "Bar Design"
+    }
+  ]
+},
+{
   "id": "doomsday-sub",
   "category": "minecraft",
   "date": "2026-08",
@@ -448,14 +478,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/orbital-strike-satellite/overhead.png",
-      "alt": "Overhead view of a decorative Minecraft satellite with eight large solar panels radiating from its central body.",
-      "caption": "Satellite — eight-panel solar array"
-    },
-    {
-      "src": "images/orbital-strike-satellite/side-view.png",
-      "alt": "Side view of a decorative Minecraft orbital strike satellite with a long central body and solar panels.",
-      "caption": "Satellite — side view"
+      "videoUrl": "https://youtu.be/IVBkYbH_oQo",
+      "alt": "Decorative geosynchronous orbital strike satellite.",
+      "caption": "Decorative geosynchronous orbital strike satellite"
     }
   ]
 },
@@ -468,14 +493,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/triple-engine-stealth-bomber/view-1.png",
-      "alt": "Minecraft bomber build with a broad triangular body and three engines.",
-      "caption": "Triple-engine bomber — overhead view"
-    },
-    {
-      "src": "images/triple-engine-stealth-bomber/view-2.png",
-      "alt": "Angled view of the Minecraft bomber showing its triangular shape and triple-engine layout.",
-      "caption": "Triple-engine bomber — angled view"
+      "videoUrl": "https://youtu.be/INDroiSujjU",
+      "alt": "Triple-engine high-altitude stealth bomber.",
+      "caption": "Triple-engine high-altitude stealth bomber"
     }
   ]
 },
@@ -761,14 +781,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/snow-farm/top-view.png",
-      "alt": "Top view of a Minecraft snow farm showing the redstone circuit around the central snow generation area.",
-      "caption": "Snow farm — top view"
-    },
-    {
-      "src": "images/snow-farm/side-view.png",
-      "alt": "Side view of a Minecraft snow farm showing pistons, redstone components, and a collection chest.",
-      "caption": "Snow farm — side view"
+      "videoUrl": "https://youtu.be/As58pfX3iPg",
+      "alt": "Automatic snow farm — 39,000 snowballs per hour.",
+      "caption": "Automatic snow farm — 39,000 snowballs per hour"
     }
   ]
 },
@@ -913,7 +928,7 @@ const projects = [
 {
   "id": "minecraft-biome-cnn",
   "category": "design",
-  "date": "2026-08",
+  "date": "2026-08-06",
   "title": "Minecraft Biome Classification with a CNN",
   "summary": "A project for APS360 (Applied Fundamentals of Deep Learning) at the University of Toronto: a convolutional neural network that classifies Minecraft screenshots into eight biomes: Basalt Deltas, Crimson Forest, Dripstone Caves, Lush Caves, Mushroom Fields, Soulsand Valley, Sulfur Caves, and Warped Forest. The CNN was compared against color histogram, RGB, ANN, and ResNet models and achieved 84.55% test accuracy. The CNN was also trained with data augmentation, but the augmented-data version was not used as the final model. Its architecture uses two convolutional layers with ReLU and max pooling, followed by two fully connected layers for eight-class prediction.",
   "mediaFormat": "documents",
