@@ -36,7 +36,6 @@ const projects = [
     "Two Conduits for long underwater missions.",
     "Dining tables seat 12 people.",
     "Six potion brewing stations, with 1,152 Blaze Powder, 1,152 Redstone Dust, and 1,152 Glowstone Dust on board.",
-    "Potion brewing area.",
     "Onboard cows, sheep, chickens, and pigs.",
     "Onboard farms for all growable crops, Nether Wart, and sugar cane, with six bee nests to accelerate crop growth."
   ]
