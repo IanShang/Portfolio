@@ -14,6 +14,27 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "technoblade-tnt-challenge",
+  "category": "minecraft",
+  "date": "2020-10-29",
+  "title": "Technoblade's TNT Challenge Set Up",
+  "summary": "Original video:",
+  "links": [
+    {
+      "url": "https://www.youtube.com/watch?v=tBfeIXLuOYg",
+      "label": "https://www.youtube.com/watch?v=tBfeIXLuOYg"
+    }
+  ],
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/iQ4AuIPD1tk",
+      "alt": "Technoblade's TNT Challenge setup demonstration.",
+      "caption": "Technoblade's TNT Challenge Set Up"
+    }
+  ]
+},
+{
   "id": "happy-ghast-hangar",
   "date": "2026-07",
   "title": "Happy Ghast Hangar",
