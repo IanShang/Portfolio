@@ -15,7 +15,7 @@ const categories = [
 const projects = [
 {
   "id": "happy-ghast-hangar",
-  "date": "2027-07",
+  "date": "2026-07",
   "title": "Happy Ghast Hangar",
   "summary": "Military style Happy Ghast Hangar, with a fence and leash to tie down your Happy Ghasts",
   "category": "minecraft",
