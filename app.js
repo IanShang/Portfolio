@@ -14,6 +14,21 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "tentable",
+  "category": "design",
+  "date": "2023-07-27",
+  "title": "SHAD 2023 Design Project - Tentable",
+  "summary": "As a part of SHAD 2023's theme of reimagining living spaces, we created Tentable: a pitch idea that aims to provide homeless people with cheaper and better tents than current alternatives.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "driveUrl": "https://drive.google.com/file/d/1Bx8kSg1_9Dc2CcIoEntS4PagJvZEAeRr/view",
+      "alt": "Tentable SHAD 2023 pitch presentation PDF.",
+      "caption": "Tentable \u2014 SHAD 2023 pitch presentation"
+    }
+  ]
+},
+{
   "id": "concrete-converter",
   "category": "minecraft",
   "date": "2024",
@@ -1216,7 +1231,19 @@ function renderProjectImages(project) {
       figure.setAttribute("aria-label", `${index + 1} of ${project.images.length}`);
     }
     const imageWindow = createElement("div", "image-window");
-    if (image.videoUrl) {
+    if (image.driveUrl) {
+      const url = new URL(image.driveUrl);
+      const fileId = url.pathname.match(/^\/file\/d\/([A-Za-z0-9_-]+)(?:\/|$)/)?.[1];
+      if (url.hostname !== "drive.google.com" || !fileId) throw new Error("Use a Google Drive file sharing URL.");
+      imageWindow.classList.add("document-window");
+      const frame = document.createElement("iframe");
+      frame.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      frame.title = image.alt || project.title;
+      frame.loading = "lazy";
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      imageWindow.append(frame);
+    } else if (image.videoUrl) {
       imageWindow.classList.add("video-window");
       const frame = document.createElement("iframe");
       frame.src = getVideoEmbedUrl(image.videoUrl);
@@ -1265,9 +1292,9 @@ function renderProjectImages(project) {
     }
     figure.append(imageWindow);
     if (image.caption) figure.append(createElement("figcaption", "image-caption", image.caption));
-    if (image.videoUrl) {
-      const link = createElement("a", "video-source", "Watch on video platform ↗");
-      link.href = image.videoUrl;
+    if (image.videoUrl || image.driveUrl) {
+      const link = createElement("a", "video-source", image.driveUrl ? "Open PDF in Google Drive ↗" : "Watch on video platform ↗");
+      link.href = image.driveUrl || image.videoUrl;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       figure.append(link);
