@@ -14,6 +14,21 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "wormholes-enex",
+  "category": "hands-on",
+  "date": "2022-05",
+  "title": "Grade 10 ENEX Project - Wormholes",
+  "summary": "As a part of the Spectrum program of Steveston London Secondary School, each year we are required to research a topic of our interest with the guidance of a professional in the field and present on it at the end of the year. For grade 10, I chose to research Wormholes after reading Hawking's A Brief History of Time in grade 9 (I understood everything except the particle physics chapter which continuously and repetitively put me to sleep). My mentor was Professor Brian McNamara from the University of Waterloo, who frequently exchanged emails with me to help me with this project.",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "preziUrl": "https://prezi.com/p/embed/wNSWwzaK3hVNWeRYDw2v/",
+      "alt": "Grade 10 ENEX research presentation on wormholes.",
+      "caption": "Grade 10 ENEX Project - Wormholes"
+    }
+  ]
+},
+{
   "id": "mousetrap-cart",
   "category": "design",
   "date": "2022-03",
@@ -1330,7 +1345,19 @@ function renderProjectImages(project) {
       figure.setAttribute("aria-label", `${index + 1} of ${project.images.length}`);
     }
     const imageWindow = createElement("div", "image-window");
-    if (image.driveUrl) {
+    if (image.preziUrl) {
+      const url = new URL(image.preziUrl);
+      if (url.protocol !== "https:" || url.hostname !== "prezi.com" || !/^\/p\/embed\/[A-Za-z0-9_-]+\/$/.test(url.pathname)) throw new Error("Use a Prezi presentation embed URL.");
+      imageWindow.classList.add("document-window");
+      const frame = document.createElement("iframe");
+      frame.src = url.href;
+      frame.title = image.alt || project.title;
+      frame.loading = "lazy";
+      frame.allow = "autoplay; fullscreen";
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      imageWindow.append(frame);
+    } else if (image.driveUrl) {
       const url = new URL(image.driveUrl);
       const fileId = url.pathname.match(/^\/file\/d\/([A-Za-z0-9_-]+)(?:\/|$)/)?.[1];
       if (url.hostname !== "drive.google.com" || !fileId) throw new Error("Use a Google Drive file sharing URL.");
@@ -1391,9 +1418,9 @@ function renderProjectImages(project) {
     }
     figure.append(imageWindow);
     if (image.caption) figure.append(createElement("figcaption", "image-caption", image.caption));
-    if (image.videoUrl || image.driveUrl) {
-      const link = createElement("a", "video-source", image.driveUrl ? "Open PDF in Google Drive ↗" : "Watch on video platform ↗");
-      link.href = image.driveUrl || image.videoUrl;
+    if (image.videoUrl || image.driveUrl || image.preziUrl) {
+      const link = createElement("a", "video-source", image.preziUrl ? "Open presentation in Prezi ↗" : image.driveUrl ? "Open PDF in Google Drive ↗" : "Watch on video platform ↗");
+      link.href = image.preziUrl || image.driveUrl || image.videoUrl;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       figure.append(link);
