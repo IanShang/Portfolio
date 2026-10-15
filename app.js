@@ -14,6 +14,21 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "engineering-physics-presentation",
+  "category": "design",
+  "date": "2023-04",
+  "title": "Engineering Physics",
+  "summary": "As a part of Engineering 11, we had to research a specific field of engineering and give a presentation on it. I chose to research Engineering Physics",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "driveUrl": "https://drive.google.com/file/d/15YR81i-tkZRV6oipOWeuwloJ4-4f2KJL/view",
+      "alt": "Engineering Physics presentation for Engineering 11.",
+      "caption": "Engineering Physics \u2014 Engineering 11 presentation"
+    }
+  ]
+},
+{
   "id": "technoblade-tnt-challenge",
   "category": "minecraft",
   "date": "2020-10-29",
