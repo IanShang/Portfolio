@@ -14,10 +14,25 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "mousetrap-cart",
+  "category": "design",
+  "date": "2022-03",
+  "title": "Mousetrap Cart Design",
+  "summary": "Designed and built a mousetrap powered car in Science 10 to learn about energy conversion",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "driveUrl": "https://drive.google.com/file/d/1wNzaDGLKpF9jQPqTENhSIJcRTQ0sQajE/view",
+      "alt": "Mousetrap Cart Design presentation.",
+      "caption": "Mousetrap Cart Design \u2014 Science 10"
+    }
+  ]
+},
+{
   "id": "engineering-physics-presentation",
   "category": "hands-on",
   "date": "2023-04",
-  "title": "Engineering Physics",
+  "title": "Engineering Physics Presentation",
   "summary": "As a part of Engineering 11, we had to research a specific field of engineering and give a presentation on it. I chose to research Engineering Physics",
   "mediaFormat": "documents",
   "images": [
