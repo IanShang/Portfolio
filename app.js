@@ -14,6 +14,78 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "happy-ghast-hangar",
+  "date": "2027-07",
+  "title": "Happy Ghast Hangar",
+  "summary": "Military style Happy Ghast Hangar, with a fence and leash to tie down your Happy Ghasts",
+  "category": "minecraft",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/SyyufJ-cDds",
+      "alt": "Happy Ghast Hangar demonstration.",
+      "caption": "Happy Ghast Hangar"
+    }
+  ]
+},
+{
+  "id": "mini-smelter",
+  "date": "2021-06",
+  "displayDate": "Summer 2021",
+  "title": "Mini Smelter",
+  "summary": "A compact Minecraft smelter.",
+  "highlights": [
+    "Fast fuel and input unloading.",
+    "4 items / 10 seconds."
+  ],
+  "category": "minecraft",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/jQVFmAE78Ms",
+      "alt": "Mini Smelter demonstration.",
+      "caption": "Mini Smelter"
+    }
+  ]
+},
+{
+  "id": "underground-retreat",
+  "date": "2026-07",
+  "title": "Underground Retreat",
+  "summary": "A small uncovered cave with the following features:",
+  "highlights": [
+    "Fishing spot included.",
+    "Dock and boat included.",
+    "Campfire included.",
+    "Tent with a bed for sleeping and two barrels.",
+    "Conduit for underwater adventures."
+  ],
+  "category": "minecraft",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/BVCOi6HQk34",
+      "alt": "Underground Retreat demonstration.",
+      "caption": "Underground Retreat"
+    }
+  ]
+},
+{
+  "id": "triple-froglight-farm",
+  "date": "2026-07",
+  "title": "Triple Froglight Farm",
+  "summary": "Magma Cube Spawner based froglight farm, with all 3 options operable depending on the AFK location of the operator",
+  "category": "minecraft",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "videoUrl": "https://youtu.be/JAGmw5wf4co",
+      "alt": "Triple Froglight Farm demonstration.",
+      "caption": "Triple Froglight Farm"
+    }
+  ]
+},
+{
   "id": "tentable",
   "category": "design",
   "date": "2023-07-27",
@@ -61,7 +133,7 @@ const projects = [
 {
   "id": "doomsday-sub",
   "category": "minecraft",
-  "date": "2026-08",
+  "date": "2026-07",
   "title": "Doomsday Submarine",
   "summary": "A Minecraft submarine built entirely in Survival Mode, equipped to support a crew of 24 on long underwater missions.",
   "mediaFormat": "documents",
@@ -134,24 +206,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/cocoa-bean-farm/view-1.png",
-      "alt": "Cocoa bean farm overview.",
-      "caption": "Cocoa bean farm overview"
-    },
-    {
-      "src": "images/cocoa-bean-farm/view-2.png",
-      "alt": "Jungle log layout and redstone wiring.",
-      "caption": "Jungle log layout and redstone wiring"
-    },
-    {
-      "src": "images/cocoa-bean-farm/view-3.png",
-      "alt": "Piston arrangement.",
-      "caption": "Piston arrangement"
-    },
-    {
-      "src": "images/cocoa-bean-farm/view-4.png",
-      "alt": "Inverter setup close-up.",
-      "caption": "Inverter setup close-up"
+      "videoUrl": "https://youtu.be/jhkV5tgTz4E",
+      "alt": "Cocoa bean farm demonstration.",
+      "caption": "Cocoa bean farm — inverter setup pushing 60 jungle logs"
     }
   ]
 },
