@@ -601,3 +601,5 @@ body.viewer-open { overflow: hidden; }
 .intro-copy { container-type: inline-size; min-width: 0; }
 #intro-title { font-size: min(clamp(3.25rem, 5.616vw, 4.836rem), 12cqi); }
 #intro-title span { font-size: inherit; white-space: nowrap; }
+
+.project-summary .inline-source { font: inherit; margin: 0; overflow-wrap: anywhere; }

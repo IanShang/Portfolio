@@ -22,7 +22,8 @@ const projects = [
   "links": [
     {
       "url": "https://www.youtube.com/watch?v=tBfeIXLuOYg",
-      "label": "https://www.youtube.com/watch?v=tBfeIXLuOYg"
+      "label": "https://www.youtube.com/watch?v=tBfeIXLuOYg",
+      "inlineSummary": true
     }
   ],
   "mediaFormat": "documents",
@@ -1428,7 +1429,8 @@ function renderProject(project) {
   entryLink.title = "Link to this project";
   title.append(entryLink);
   details.append(title);
-  details.append(createElement("p", "project-summary", project.summary));
+  const summary = createElement("p", "project-summary", project.summary);
+  details.append(summary);
   if (project.highlights?.length) {
     const list = createElement("ul", "project-highlights");
     for (const point of project.highlights) list.append(createElement("li", "", point));
@@ -1450,7 +1452,10 @@ function renderProject(project) {
     link.href = source.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    details.append(link);
+    if (source.inlineSummary) {
+      link.classList.add("inline-source");
+      summary.append(" ", link);
+    } else details.append(link);
   }
   article.append(details);
   return article;
