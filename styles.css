@@ -328,7 +328,7 @@ h2 {
 .drawing-link { display: block; width: 75%; margin-inline: auto; background: white; }
 .has-drawings .project-figure img { width: 100%; height: auto; min-height: 0; object-fit: contain; }
 .has-drawings .image-caption { position: static; flex: 1; margin: 0; padding: 12px 16px; }
-.has-drawings .project-title, .has-drawings .project-summary { max-width: 780px; }
+.has-drawings .project-title { max-width: 780px; }
 
 @media (max-width: 760px) {
   .has-drawings .project-media .project-figure img { min-height: 0; }
@@ -381,7 +381,7 @@ h2 {
 .project-date { color: var(--quiet); }
 .project-category::before { display: inline-block; width: 5px; height: 5px; margin: 0 7px 1px 0; background: var(--accent); content: ""; }
 .project-title { max-width: 490px; margin-bottom: 12px; font-size: clamp(1.5rem, 2.5vw, 2.1rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.15; }
-.project-summary { max-width: 480px; margin-bottom: 28px; color: var(--muted); font-size: 1.1rem; }
+.project-summary { width: 100%; max-width: none; margin-bottom: 28px; color: var(--muted); font-size: 1.1rem; }
 .project-number { margin-top: auto; color: var(--quiet); font-size: .56rem; }
 
 .project-downloads { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
