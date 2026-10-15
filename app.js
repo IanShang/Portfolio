@@ -580,19 +580,9 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
-      "src": "images/crossbow-tnt-cannon/view-1.png",
-      "alt": "Minecraft TNT cannon with paired firing arms and redstone circuitry.",
-      "caption": "Crossbow — overview"
-    },
-    {
-      "src": "images/crossbow-tnt-cannon/view-2.png",
-      "alt": "View inside the TNT cannon showing its firing mechanism.",
-      "caption": "Crossbow — firing mechanism"
-    },
-    {
-      "src": "images/crossbow-tnt-cannon/view-3.png",
-      "alt": "Top view of the Crossbow TNT cannon and redstone delay layout.",
-      "caption": "Crossbow — redstone layout"
+      "videoUrl": "https://youtu.be/ao_dCNv5WXE",
+      "alt": "Crossbow TNT cannon demonstration.",
+      "caption": "Crossbow — TNT cannon demonstration"
     }
   ]
 },
