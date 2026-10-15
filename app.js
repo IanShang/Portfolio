@@ -15,7 +15,7 @@ const categories = [
 const projects = [
 {
   "id": "engineering-physics-presentation",
-  "category": "design",
+  "category": "hands-on",
   "date": "2023-04",
   "title": "Engineering Physics",
   "summary": "As a part of Engineering 11, we had to research a specific field of engineering and give a presentation on it. I chose to research Engineering Physics",
