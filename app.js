@@ -20,7 +20,13 @@ const projects = [
   "title": "Climate Activism Instagram Page",
   "summary": "A page dedicated to climate activism as part of a Social Studies 9 group project:",
   "mediaFormat": "documents",
-  "images": [],
+  "images": [
+    {
+      "src": "images/climate-activism/instagram-profile.png",
+      "alt": "trueclimateactivism Instagram profile with a climate-themed globe logo, 5 posts and 15 followers.",
+      "caption": "Climate activism Instagram page \u2014 @trueclimateactivism"
+    }
+  ],
   "links": [
     {
       "url": "https://www.instagram.com/trueclimateactivism/",
