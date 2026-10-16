@@ -18,9 +18,16 @@ const projects = [
   "category": "design",
   "date": "2021-06-20",
   "title": "Climate Activism Instagram Page",
-  "summary": "A page dedicated to climate activism as part of a Social Studies 9 group project",
+  "summary": "A page dedicated to climate activism as part of a Social Studies 9 group project:",
   "mediaFormat": "documents",
-  "images": []
+  "images": [],
+  "links": [
+    {
+      "url": "https://www.instagram.com/trueclimateactivism/",
+      "label": "@trueclimateactivism",
+      "inlineSummary": true
+    }
+  ]
 },
 {
   "id": "ansys-aircraft-stringer",
