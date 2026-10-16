@@ -15,7 +15,7 @@ const categories = [
 const projects = [
 {
   "id": "climate-activism-instagram",
-  "category": "design",
+  "category": "hands-on",
   "date": "2021-06-20",
   "title": "Climate Activism Instagram Page",
   "summary": "A page dedicated to climate activism as part of a Social Studies 9 group project:",
