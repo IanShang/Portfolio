@@ -14,6 +14,15 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "climate-activism-instagram",
+  "category": "design",
+  "date": "2021-06-20",
+  "title": "Climate Activism Instagram Page",
+  "summary": "A page dedicated to climate activism as part of a Social Studies 9 group project",
+  "mediaFormat": "documents",
+  "images": []
+},
+{
   "id": "ansys-aircraft-stringer",
   "category": "hands-on",
   "date": "2026-03-16",
@@ -1499,7 +1508,7 @@ function renderProject(project) {
   if (project.mediaFormat === "pack") article.classList.add("has-pack");
   if (["drawings", "documents"].includes(project.mediaFormat)) article.classList.add("has-drawings");
   article.id = project.id;
-  article.append(renderProjectImages(project));
+  if (project.images?.length) article.append(renderProjectImages(project));
 
   const details = createElement("div", "project-details");
   const metadata = createElement("div", "project-meta");
