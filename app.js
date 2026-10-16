@@ -1160,7 +1160,7 @@ const projects = [
     category: "design",
     date: "2025-04",
     title: "Landmark Charge — EV Charging Campaign",
-    summary: "A team campaign for the University of Toronto’s Landmark Garage, combining a consistent brand identity, Instagram graphics and reels, and physical signage to raise awareness of underused EV chargers. The Instagram profile accumulated 27,000 total views. We compared sponsored and organic content during April 2–7, 2025: the sponsored trend reel reached 8,815 users, generated 11,866 views, and drove 907 profile visits. The project also proposed parking discounts and local partnerships to make charging more accessible.",
+    summary: "A team campaign for the University of Toronto’s Landmark Garage, using multiple marketing techniques to awareness of underused EV chargers. The Instagram profile has accumulated over 27,000 total views.",
     mediaFormat: "documents",
     images: [
       {
