@@ -14,6 +14,32 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "ansys-aircraft-stringer",
+  "category": "hands-on",
+  "date": "2026-03-16",
+  "title": "ANSYS Analysis of Aircraft Stringer",
+  "summary": "A lab in MIE222 Solid Mechanics I, and my first experience with using ANSYS",
+  "mediaFormat": "documents",
+  "images": [
+    {
+      "src": "images/ansys-aircraft-stringer/analysis-1.png",
+      "alt": "ANSYS aircraft stringer analysis screenshot 1."
+    },
+    {
+      "src": "images/ansys-aircraft-stringer/analysis-2.png",
+      "alt": "ANSYS aircraft stringer analysis screenshot 2."
+    },
+    {
+      "src": "images/ansys-aircraft-stringer/analysis-3.png",
+      "alt": "ANSYS aircraft stringer analysis screenshot 3."
+    },
+    {
+      "src": "images/ansys-aircraft-stringer/analysis-4.png",
+      "alt": "ANSYS aircraft stringer analysis screenshot 4."
+    }
+  ]
+},
+{
   "id": "wormholes-enex",
   "category": "hands-on",
   "date": "2022-05",
