@@ -18,7 +18,7 @@ const projects = [
   "category": "hands-on",
   "date": "2026-03-16",
   "title": "ANSYS Analysis of Aircraft Stringer",
-  "summary": "A lab in MIE222 Solid Mechanics I, and my first experience with using ANSYS",
+  "summary": "A lab in MIE222 Solid Mechanics I and my first experience with using ANSYS",
   "mediaFormat": "documents",
   "images": [
     {
