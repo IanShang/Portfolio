@@ -1571,7 +1571,6 @@ function render() {
   const activeCategory = getActiveCategory();
   const visibleProjects = getVisibleProjects(activeCategory);
   renderNavigation(activeCategory);
-  updateHeroPhoto(activeCategory?.id);
   document.querySelector("#education").hidden = Boolean(activeCategory);
   const categoryIntros = {
     art: "Creative freedom is wonderful",
@@ -1661,43 +1660,6 @@ document.querySelector(".footer-contact").addEventListener("click", async () => 
 });
 window.addEventListener("hashchange", render);
 
-// Canvas avoids the browser's standard Save Image and drag-image actions.
-const heroPhotoFrame = document.querySelector(".hero-photo-frame");
-const heroPhotoCanvas = document.querySelector(".hero-photo");
-const heroPhoto = new Image();
-function drawHeroPhoto() {
-  if (!heroPhoto.naturalWidth) return;
-  const scale = window.devicePixelRatio || 1;
-  const width = heroPhotoFrame.clientWidth;
-  const height = heroPhotoFrame.clientHeight;
-  heroPhotoCanvas.width = Math.round(width * scale);
-  heroPhotoCanvas.height = Math.round(height * scale);
-  const context = heroPhotoCanvas.getContext("2d");
-  const fit = Math.max(heroPhotoCanvas.width / heroPhoto.naturalWidth, heroPhotoCanvas.height / heroPhoto.naturalHeight);
-  const drawWidth = heroPhoto.naturalWidth * fit;
-  const drawHeight = heroPhoto.naturalHeight * fit;
-  context.drawImage(heroPhoto, (heroPhotoCanvas.width - drawWidth) / 2, (heroPhotoCanvas.height - drawHeight) / 2, drawWidth, drawHeight);
-}
-heroPhoto.addEventListener("load", drawHeroPhoto);
-// Assign a section its own hero image; unspecified sections retain the clock.
-const heroPhotos = {
-  minecraft: "images/hero/minecraft.png",
-  "hands-on": "images/hero/hands-on.jpg",
-  models: "images/hero/models.png",
-  photography: "images/hero/photography.jpg",
-};
-let currentHeroPhoto;
-function updateHeroPhoto(categoryId) {
-  const source = heroPhotos[categoryId] || "images/hero/clockwork-portal.png";
-  if (source === currentHeroPhoto) return;
-  currentHeroPhoto = source;
-  heroPhotoCanvas.getContext("2d").clearRect(0, 0, heroPhotoCanvas.width, heroPhotoCanvas.height);
-  heroPhoto.src = source;
-}
-new ResizeObserver(drawHeroPhoto).observe(heroPhotoFrame);
-for (const eventName of ["contextmenu", "dragstart"]) {
-  heroPhotoFrame.addEventListener(eventName, (event) => event.preventDefault());
-}
 
 render();
 
