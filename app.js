@@ -1265,6 +1265,30 @@ imageViewer.addEventListener("keydown", (event) => {
     moveViewerPhoto(event.key === "ArrowLeft" ? -1 : 1);
   }
 });
+// Horizontal, single-finger swipes navigate photos without intercepting pinch zoom.
+const swipeImage = imageViewer.querySelector(".viewer-image");
+let viewerSwipeStart = null;
+swipeImage.addEventListener("touchstart", (event) => {
+  if (event.touches.length !== 1) { viewerSwipeStart = null; return; }
+  const touch = event.touches[0];
+  viewerSwipeStart = { x: touch.clientX, y: touch.clientY, id: touch.identifier };
+}, { passive: true });
+swipeImage.addEventListener("touchmove", (event) => {
+  if (event.touches.length !== 1) viewerSwipeStart = null;
+}, { passive: true });
+swipeImage.addEventListener("touchend", (event) => {
+  const start = viewerSwipeStart;
+  viewerSwipeStart = null;
+  if (!start || event.touches.length) return;
+  const touch = [...event.changedTouches].find((item) => item.identifier === start.id);
+  if (!touch) return;
+  const dx = touch.clientX - start.x;
+  const dy = touch.clientY - start.y;
+  if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.3) moveViewerPhoto(dx < 0 ? 1 : -1);
+}, { passive: true });
+swipeImage.addEventListener("touchcancel", () => { viewerSwipeStart = null; }, { passive: true });
+imageViewer.addEventListener("close", () => { viewerSwipeStart = null; });
+
 function openImage(image, project) {
   viewerPhotos = project.images.filter((item) => item.src);
   viewerPhotoIndex = viewerPhotos.indexOf(image);

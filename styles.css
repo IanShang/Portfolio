@@ -600,3 +600,5 @@ body.viewer-open { overflow: hidden; }
 #intro-title span { font-size: inherit; white-space: nowrap; }
 
 .project-summary .inline-source { font: inherit; margin: 0; overflow-wrap: anywhere; }
+
+.viewer-image { touch-action: pan-y pinch-zoom; }
