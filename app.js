@@ -1681,6 +1681,7 @@ function drawHeroPhoto() {
 heroPhoto.addEventListener("load", drawHeroPhoto);
 // Assign a section its own hero image; unspecified sections retain the clock.
 const heroPhotos = {
+  minecraft: "images/hero/minecraft.png",
   "hands-on": "images/hero/hands-on.jpg",
   models: "images/hero/models.png",
   photography: "images/hero/photography.jpg",
