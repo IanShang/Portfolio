@@ -1682,6 +1682,8 @@ heroPhoto.addEventListener("load", drawHeroPhoto);
 // Assign a section its own hero image; unspecified sections retain the clock.
 const heroPhotos = {
   "hands-on": "images/hero/hands-on.jpg",
+  models: "images/hero/models.png",
+  photography: "images/hero/photography.jpg",
 };
 let currentHeroPhoto;
 function updateHeroPhoto(categoryId) {
