@@ -515,6 +515,11 @@ const projects = [
   "mediaFormat": "documents",
   "images": [
     {
+      "videoUrl": "https://youtube.com/shorts/iuDvdMid6hA?feature=share",
+      "alt": "SHAD wind turbine demonstration.",
+      "caption": "Wind turbine demonstration"
+    },
+    {
       "src": "images/wind-turbine/printed-blade-updated.jpg",
       "alt": "Yellow 3D-printed wind turbine blade held in a hand.",
       "caption": "3D-printed turbine blade"
