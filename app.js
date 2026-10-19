@@ -1655,8 +1655,26 @@ document.querySelector("#explore-education").addEventListener("click", (event) =
 window.addEventListener("popstate", render);
 const emailCopyStatus = document.querySelector(".email-copy-status");
 let emailCopyTimer;
-document.querySelector(".footer-contact").addEventListener("click", async () => {
+document.querySelector(".footer-contact").addEventListener("click", async (event) => {
+  event.preventDefault();
   const email = "vipianshang@gmail.com";
+  const fallback = document.querySelector(".outlook-fallback");
+  fallback.hidden = false;
+  // A blank window gives us a reliable popup-blocking result; noopener in
+  // window.open's features can return null even when a popup opened normally.
+  let gmailWindow;
+  try {
+    gmailWindow = window.open("about:blank", "_blank");
+    if (gmailWindow) {
+      gmailWindow.opener = null;
+      gmailWindow.location.replace(event.currentTarget.href);
+    }
+  } catch {
+    gmailWindow?.close();
+    gmailWindow = null;
+  }
+  if (!gmailWindow) window.location.assign(fallback.href);
+
   let copied = false;
   try {
     await navigator.clipboard.writeText(email);
