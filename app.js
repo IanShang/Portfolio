@@ -1382,7 +1382,10 @@ function getVideoEmbedUrl(videoUrl) {
   const host = url.hostname.replace(/^www\./, "");
   if (["youtube.com", "youtu.be"].includes(host)) {
     const id = host === "youtu.be" ? url.pathname.slice(1) : url.searchParams.get("v") || url.pathname.split("/").pop();
-    if (/^[A-Za-z0-9_-]{11}$/.test(id)) return `https://www.youtube-nocookie.com/embed/${id}`;
+    if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
+      const params = new URLSearchParams({ enablejsapi: "1", origin: window.location.origin });
+      return `https://www.youtube-nocookie.com/embed/${id}?${params}`;
+    }
   }
   if (host === "bilibili.com") {
     const bvid = url.pathname.match(/\/video\/(BV[A-Za-z0-9]+)/)?.[1];
@@ -1757,3 +1760,21 @@ new ResizeObserver(([entry]) => {
 document.fonts.ready.then(alignCourseworkRows);
 
 arrangeCoursework();
+
+// Scrolling only sends pause commands. Playback resumes exclusively through
+// the player's own controls, including when returning to a previous position.
+function pausePageVideos() {
+  for (const video of document.querySelectorAll(".project-media video, .video-window video")) video.pause();
+  for (const frame of document.querySelectorAll('.video-window iframe[src^="https://www.youtube-nocookie.com/embed/"]')) {
+    frame.contentWindow?.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "https://www.youtube-nocookie.com");
+  }
+}
+let scrollPausePending = false;
+window.addEventListener("scroll", () => {
+  if (scrollPausePending) return;
+  scrollPausePending = true;
+  requestAnimationFrame(() => {
+    scrollPausePending = false;
+    pausePageVideos();
+  });
+}, { passive: true, capture: true });
