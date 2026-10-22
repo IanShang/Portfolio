@@ -17,7 +17,7 @@ const projects = [
   "id": "amazon-basics-bike-light-redesign",
   "category": "design",
   "date": "2026-12-08",
-  "title": "Amazon Basics Bike Light Redesign",
+  "title": "Amazon Basics Bike Light Redesign (WIP)",
   "workInProgress": true,
   "summary": "As a part of MIE315 Sustainable Engineering Design, my group chose to order and redesign Amazon Basics Bike Lights to be more sustainable. As a group, we did functions, objectives, constraints analysis and employed many Design for Environment strategies to minimize the harm of our redesigned product. We also conducted flow diagrams to analyze the materials going in and coming out of the product's entire life cycle. As the Project Manager, I oversaw all meetings and progress made within the project to ensure that our work is of utmost quality. Other tasks I performed include assigning duties, communicating with the professor or TA, as well as general project timeline planning."
 },
