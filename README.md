@@ -51,3 +51,7 @@ Open `index.html` in a browser. The page uses only local files and works without
 The site is ready for static hosting. To publish with GitHub Pages, place the contents of this folder in the root of a GitHub repository, push the files, then select that repository's main branch and root folder in the repository's **Settings → Pages** page. GitHub will provide a public site URL after it finishes publishing. A custom domain is optional. You will need to use your own GitHub account and choose the repository and public URL.
 
 Before sharing the site, replace the personal placeholders and add only the project details and contact information you want to make public.
+
+### Work-in-progress projects
+
+For future work-in-progress entries in `app.js`, set `workInProgress: true`. When no images are supplied, the site automatically uses the shared `images/shared/work-in-progress.jpg` cover and displays a Work in Progress label. Add the normal category, title, date, and summary. Set the flag to false and provide project media when the work is complete.

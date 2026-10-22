@@ -14,6 +14,14 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "amazon-basics-bike-light-redesign",
+  "category": "design",
+  "date": "2026-12-08",
+  "title": "Amazon Basics Bike Light Redesign",
+  "workInProgress": true,
+  "summary": "As a part of MIE315 Sustainable Engineering Design, my group chose to order and redesign Amazon Basics Bike Lights to be more sustainable. As a group, we did functions, objectives, constraints analysis and employed many Design for Environment strategies to minimize the harm of our redesigned product. We also conducted flow diagrams to analyze the materials going in and coming out of the product's entire life cycle. As the Project Manager, I oversaw all meetings and progress made within the project to ensure that our work is of utmost quality. Other tasks I performed include assigning duties, communicating with the professor or TA, as well as general project timeline planning."
+},
+{
   "id": "climate-activism-instagram",
   "category": "hands-on",
   "date": "2021-06-20",
@@ -1229,6 +1237,19 @@ const projects = [
   },
 ];
 
+// Shared default cover for current and future work-in-progress projects.
+const workInProgressImage = {
+  src: "images/shared/work-in-progress.jpg",
+  alt: "A sign reading Work in Progress at a construction site.",
+  caption: "Work in Progress",
+};
+for (const project of projects) {
+  if (project.workInProgress && !project.images?.length) {
+    project.images = [{ ...workInProgressImage }];
+    project.mediaFormat = "documents";
+  }
+}
+
 const navRoot = document.querySelector("#category-nav");
 const feedRoot = document.querySelector("#project-feed");
 const heading = document.querySelector("#feed-heading");
@@ -1559,6 +1580,7 @@ function renderProject(project) {
   const metadata = createElement("div", "project-meta");
   metadata.append(createElement("span", "project-category", category.label));
   metadata.append(createElement("time", "project-date", formatDate(project.date, project.displayDate)));
+  if (project.workInProgress) metadata.append(createElement("span", "project-status", "Work in Progress"));
   details.append(metadata);
   const title = createElement("h3", "project-title");
   const entryLink = createElement("a", "project-entry-link", project.title);

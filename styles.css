@@ -605,3 +605,5 @@ body.viewer-open { overflow: hidden; }
 
 .intro-links .outlook-fallback { font-size: .8rem; font-weight: 400; white-space: normal; min-height: 0; max-width: 190px; color: var(--accent-soft); text-underline-offset: 3px; }
 .outlook-fallback[hidden] { display: none; }
+
+.project-status { color: var(--accent); border: 1px solid var(--line); padding: 2px 8px; border-radius: 3px; }
