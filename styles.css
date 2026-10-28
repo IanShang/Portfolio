@@ -607,3 +607,5 @@ body.viewer-open { overflow: hidden; }
 .outlook-fallback[hidden] { display: none; }
 
 .project-status { color: var(--accent); border: 1px solid var(--line); padding: 2px 8px; border-radius: 3px; }
+
+.brand-star { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }

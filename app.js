@@ -1800,3 +1800,20 @@ window.addEventListener("scroll", () => {
     pausePageVideos();
   });
 }, { passive: true, capture: true });
+
+// Render the decorative star without a directly saveable image element.
+const brandStar = document.querySelector(".brand-star");
+const brandStarImage = new Image();
+brandStarImage.addEventListener("load", () => {
+  const scale = window.devicePixelRatio || 1;
+  brandStar.width = Math.round(40 * scale);
+  brandStar.height = Math.round(40 * scale);
+  const fit = Math.min(brandStar.width / brandStarImage.naturalWidth, brandStar.height / brandStarImage.naturalHeight);
+  const width = brandStarImage.naturalWidth * fit;
+  const height = brandStarImage.naturalHeight * fit;
+  brandStar.getContext("2d").drawImage(brandStarImage, (brandStar.width - width) / 2, (brandStar.height - height) / 2, width, height);
+});
+brandStarImage.src = "favicon.png?v=1";
+for (const eventName of ["contextmenu", "dragstart", "copy", "cut", "selectstart"]) {
+  brandStar.addEventListener(eventName, (event) => event.preventDefault());
+}
