@@ -1649,12 +1649,12 @@ function render() {
   renderEducation(activeCategory);
   const categoryIntros = {
     education: "Education, awards, and coursework",
-    arts: "My creative freedom: work captured and painted without professional equipment.",
+    arts: "My creative freedom: work captured and painted without professional equipment",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
-    "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually.",
+    "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually",
     minecraft: "Unique Minecraft contraptions, builds, and resource packs designed by me. During my 2026 summer internship, my supervisor kept asking why I design things to be so square and rectangular. I suspect this is why.",
-    models: "Trumpeter, Tamiya, and Hasegawa model kits, assembled and spray-painted using techniques I taught myself.",
+    models: "Trumpeter, Tamiya, and Hasegawa model kits, assembled and spray-painted using techniques I taught myself",
   };
   introDescription.textContent = categoryIntros[activeCategory?.id] ?? defaultIntroDescription;
 
