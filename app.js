@@ -1649,7 +1649,7 @@ function render() {
   renderEducation(activeCategory);
   const categoryIntros = {
     education: "Education, awards, and coursework",
-    arts: "Creative freedom is wonderful, work captured and painted without professional equipment.",
+    arts: "My creative freedom: work captured and painted without professional equipment.",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
     "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually.",
