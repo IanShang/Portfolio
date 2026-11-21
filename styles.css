@@ -131,7 +131,7 @@ main { overflow: hidden; }
   align-items: center;
   gap: 6%;
   margin: 0 auto;
-  padding: calc(65px * 2 / 3) 0 86px;
+  padding: calc(65px * 4 / 9) 0 86px;
 }
 
 .intro-copy { position: relative; z-index: 1; padding-bottom: 6px; }
@@ -437,7 +437,7 @@ h2 {
   .category-nav { width: 100%; justify-content: flex-start; overflow-x: auto; padding: 0 0 2px; }
   .nav-link { min-width: max-content; padding: 8px 11px; }
   .nav-link[aria-current="page"]::after { right: 11px; left: 11px; }
-  .intro { width: min(100% - 12vw, 560px); min-height: auto; grid-template-columns: 1fr; gap: 36px; padding: 44px 0 74px; }
+  .intro { width: min(100% - 12vw, 560px); min-height: auto; grid-template-columns: 1fr; gap: 36px; padding: calc(44px * 2 / 3) 0 74px; }
   .intro-copy { padding: 0; }
   h1 { font-size: clamp(3.5rem, 13vw, 5.7rem); }
   .intro-visual { width: min(100%, 470px); justify-self: center; }
