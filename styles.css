@@ -538,7 +538,7 @@ body.viewer-open { overflow: hidden; }
 .education-details { padding: 20px 12px; border-bottom: 1px solid var(--line); }
 .education-details h3 { margin: 16px 0; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; }
 .education-university, .education-dates { color: var(--accent); font-family: var(--mono); font-size: .95rem; font-weight: 400; letter-spacing: normal; }
-.education-university { margin: 0; }
+.education-university { margin: 0; font-size: 1.2rem; }
 .education-dates span { color: var(--muted); }
 .education-minor { font-size: 1.1rem; color: var(--muted); }
 .education-certificates { padding-left: 1.2em; color: var(--muted); line-height: 1.8; }
@@ -619,3 +619,5 @@ body.viewer-open { overflow: hidden; }
 .intro { margin-top: -40px; padding-top: 40px; min-height: calc(500px - (40px - 65px * 4 / 9) - 40px); }
 @media (min-width: 1200px) { .intro { min-height: calc(565px - (40px - 65px * 4 / 9) - 40px); } }
 @media (max-width: 760px) { .intro { margin-top: 0; padding-top: 0; min-height: auto; } }
+
+.education-university, .education-details h3 { margin-inline: 0; padding-inline: 0; text-indent: 0; text-align: left; }
