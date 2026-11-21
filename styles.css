@@ -535,10 +535,10 @@ body.viewer-open { overflow: hidden; }
 .intro-actions .text-link { margin-top: 0; }
 .education-section[hidden] { display: none; }
 .education-card { grid-template-columns: 1fr; }
-.education-details { padding: 20px 12px; border-bottom: 1px solid var(--line); }
-.education-details h3 { margin: 16px 0; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; }
+.education-details { padding: 12px 12px 20px; border-bottom: 1px solid var(--line); }
+.education-details h3 { margin: 8px 0 16px; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; }
 .education-university, .education-dates { color: var(--accent); font-family: var(--mono); font-size: .95rem; font-weight: 400; letter-spacing: normal; }
-.education-university { margin: 0; font-size: 1.2rem; }
+.education-university { margin: 0; font-size: 1.2rem; line-height: 1.3; }
 .education-dates span { color: var(--muted); }
 .education-minor { font-size: 1.1rem; color: var(--muted); }
 .education-certificates { padding-left: 1.2em; color: var(--muted); line-height: 1.8; }

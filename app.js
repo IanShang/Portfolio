@@ -1817,3 +1817,17 @@ brandStarImage.src = "favicon.png?v=1";
 for (const eventName of ["contextmenu", "dragstart", "copy", "cut", "selectstart"]) {
   brandStar.addEventListener(eventName, (event) => event.preventDefault());
 }
+
+// Align the first visible letter rather than the different fonts' side bearings.
+function alignEducationHeadingInk() {
+  const context = document.createElement("canvas").getContext("2d");
+  for (const element of document.querySelectorAll(".education-university, .education-details h3")) {
+    const style = getComputedStyle(element);
+    context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+    const firstLetter = element.textContent.trim()[0];
+    const bearing = context.measureText(firstLetter).actualBoundingBoxLeft;
+    element.style.textIndent = `${bearing}px`;
+  }
+}
+document.fonts.ready.then(alignEducationHeadingInk);
+window.addEventListener("resize", alignEducationHeadingInk);
