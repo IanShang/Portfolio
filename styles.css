@@ -538,7 +538,7 @@ body.viewer-open { overflow: hidden; }
 .education-details { padding: 12px 12px 20px; border-bottom: 1px solid var(--line); }
 .education-details h3 { margin: 8px 0 16px; font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.2; }
 .education-university, .education-dates { color: var(--accent); font-family: var(--mono); font-size: .95rem; font-weight: 400; letter-spacing: normal; }
-.education-university { margin: 0; color: var(--ink); font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.3; }
+.education-university { margin: 0; color: var(--ink); font-family: var(--sans); font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; line-height: 1.3; }
 .education-dates span { color: var(--muted); }
 .education-minor { font-size: 1.1rem; color: var(--muted); }
 .education-certificates { padding-left: 1.2em; color: var(--muted); line-height: 1.8; }
