@@ -6,8 +6,7 @@ const categories = [
   { id: "hands-on", label: "Hands On" },
   { id: "models", label: "Models" },
   { id: "minecraft", label: "Minecraft" },
-  { id: "photography", label: "Photography" },
-  { id: "art", label: "Art" },
+  { id: "arts", label: "Arts" },
 ];
 
 // Add projects here; each entry appears in its category and the main feed.
@@ -298,7 +297,7 @@ const projects = [
 },
 {
   "id": "art-9",
-  "category": "art",
+  "category": "arts",
   "date": "2021",
   "title": "Art 9",
   "summary": "A collection of artwork created in Art 9 in 2021.",
@@ -580,7 +579,7 @@ const projects = [
 },
 {
   "id": "organized-chaos",
-  "category": "art",
+  "category": "arts",
   "date": "2018",
   "displayDate": "2018-2019 Grade 7",
   "title": "Organized Chaos",
@@ -596,7 +595,7 @@ const projects = [
 },
 {
   "id": "photography-winter-2023",
-  "category": "photography",
+  "category": "arts",
   "date": "2023-12",
   "displayDate": "Winter 2023/12/- to 2024/1/-",
   "title": "Winter 2023 — UK and Ireland",
@@ -752,7 +751,7 @@ const projects = [
 },
 {
   "id": "photography-summer-2026",
-  "category": "photography",
+  "category": "arts",
   "date": "2026-07",
   "displayDate": "2026/07-08/-",
   "title": "Summer 2026",
@@ -848,7 +847,7 @@ const projects = [
 },
 {
   "id": "photography-summer-2025",
-  "category": "photography",
+  "category": "arts",
   "date": "2025-07",
   "displayDate": "2025/07-08/-",
   "title": "Summer 2025",
@@ -1389,7 +1388,7 @@ function getVisibleProjects(activeCategory) {
     .map((project, originalIndex) => ({ project, originalIndex, order: projectOrder(project) }))
     .filter(({ project }) => activeCategory
       ? project.category === activeCategory.id
-      : !["minecraft", "photography", "art"].includes(project.category))
+      : !["minecraft", "arts"].includes(project.category))
     .sort((a, b) => {
       if (a.order === null && b.order === null) return a.originalIndex - b.originalIndex;
       if (a.order === null) return 1;
@@ -1639,6 +1638,10 @@ function renderEducation(activeCategory) {
 }
 
 function render() {
+  // Preserve existing Art and Photography links after merging their categories.
+  if (/^#(?:art|photography)(?=\/|$)/.test(window.location.hash)) {
+    history.replaceState(null, "", window.location.hash.replace(/^#(?:art|photography)(?=\/|$)/, "#arts"));
+  }
   if (window.location.hash === "#all") history.replaceState(null, "", window.location.pathname + window.location.search);
   const activeCategory = getActiveCategory();
   const visibleProjects = getVisibleProjects(activeCategory);
@@ -1646,10 +1649,9 @@ function render() {
   renderEducation(activeCategory);
   const categoryIntros = {
     education: "My education and highlighted coursework.",
-    art: "Creative freedom is wonderful",
+    arts: "Creative freedom is wonderful. Scenes worth remembering, captured without professional equipment.",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
-    photography: "Scenes worth remembering, captured without professional equipment",
     "hands-on": "My experience with crafts, machining, hand tools, woodworking, and doing things manually.",
     minecraft: "Unique Minecraft contraptions, builds, and resource packs designed by me. During my 2026 summer internship, my supervisor kept asking why I design things to be so square and rectangular. I suspect this is why.",
     models: "Trumpeter, Tamiya, and Hasegawa model kits, assembled and spray-painted using techniques I taught myself.",
