@@ -560,7 +560,7 @@ body.viewer-open { overflow: hidden; }
 .intro-actions .text-link { font-size: 1.15rem; min-height: 36px; }
 .intro-actions .text-link span { font-size: 1.5rem; }
 .intro-actions .resume-link svg { width: 20px; height: 20px; }
-.intro { padding-bottom: 36px; }
+.intro { padding-bottom: 24px; }
 
 .course-year { grid-column: 1 / -1; margin: 0; color: var(--ink); font-size: 1.25rem; font-weight: 600; }
 
@@ -579,8 +579,8 @@ body.viewer-open { overflow: hidden; }
 
 .intro-contacts a svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-.education-section { padding-bottom: 48px; }
-.education-section:not([hidden]) + .work-section { padding-top: 42px; }
+.education-section { padding-bottom: 32px; }
+.education-section:not([hidden]) + .work-section { padding-top: 24px; }
 
 /* Hide the hero image when the intro switches to a single column. */
 @media (max-width: 760px) { .intro-visual { display: none; } }
@@ -612,3 +612,5 @@ body.viewer-open { overflow: hidden; }
 .brand-star { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 
 .education-section { padding-top: 24px; }
+
+.work-section:not(.education-section) { padding-top: 24px; }
