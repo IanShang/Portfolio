@@ -1,6 +1,7 @@
 // Add a category here to create its navigation link and filter view.
 // Project cards use the same renderer for every category.
 const categories = [
+  { id: "education", label: "Education" },
   { id: "design", label: "Design" },
   { id: "hands-on", label: "Hands On" },
   { id: "models", label: "Models" },
@@ -1363,7 +1364,7 @@ function navigateToSection(event) {
   event.preventDefault();
   history.pushState(null, "", event.currentTarget.hash || window.location.pathname + window.location.search);
   render();
-  scrollToSectionHeading();
+  scrollToSectionHeading(getActiveCategory()?.id === "education" ? document.querySelector("#education-heading") : heading);
 }
 
 function formatDate(date, label) {
@@ -1620,13 +1621,31 @@ function renderProject(project) {
   return article;
 }
 
+// Start dates determine the newest education, including ongoing degrees.
+// Keep dated education cards in HTML; Main shows one, Education shows them all.
+function renderEducation(activeCategory) {
+  const section = document.querySelector("#education");
+  const container = section.querySelector(".education-entries");
+  const entries = [...container.querySelectorAll(":scope > .education-card")];
+  entries.sort((a, b) => (b.dataset.startDate || "").localeCompare(a.dataset.startDate || "")
+    || (b.dataset.endDate || "").localeCompare(a.dataset.endDate || ""));
+  const showAll = activeCategory?.id === "education";
+  section.hidden = Boolean(activeCategory) && !showAll;
+  entries.forEach((entry, index) => {
+    entry.hidden = !showAll && index > 0;
+    container.append(entry);
+  });
+  heading.closest(".work-section").hidden = showAll;
+}
+
 function render() {
   if (window.location.hash === "#all") history.replaceState(null, "", window.location.pathname + window.location.search);
   const activeCategory = getActiveCategory();
   const visibleProjects = getVisibleProjects(activeCategory);
   renderNavigation(activeCategory);
-  document.querySelector("#education").hidden = Boolean(activeCategory);
+  renderEducation(activeCategory);
   const categoryIntros = {
+    education: "My education and highlighted coursework.",
     art: "Creative freedom is wonderful",
     design: "A list of items I designed, either by myself or with a team",
     marketing: "Studying engineering doesn't mean I can't do sales pitches",
@@ -1674,6 +1693,10 @@ document.querySelector(".brand").addEventListener("click", (event) => {
 });
 document.querySelector("#explore-projects").addEventListener("click", (event) => {
   event.preventDefault();
+  if (getActiveCategory()?.id === "education") {
+    history.pushState(null, "", window.location.pathname + window.location.search);
+    render();
+  }
   scrollToSectionHeading();
 });
 document.querySelector("#explore-education").addEventListener("click", (event) => {
@@ -1736,52 +1759,54 @@ window.addEventListener("hashchange", render);
 render();
 
 // Keep corresponding coursework rows aligned when course names wrap.
-const courseworkTables = document.querySelector(".coursework-tables");
-const courseworkColumns = [...courseworkTables.querySelectorAll("table")];
-const courseworkOriginalRows = courseworkColumns.map((table) => [...table.querySelectorAll("tbody tr")]);
-const courseworkChronologicalRows = [];
-for (let index = 0; index < Math.max(...courseworkOriginalRows.map((rows) => rows.length)); index++) {
-  for (const rows of courseworkOriginalRows) if (rows[index]) courseworkChronologicalRows.push(rows[index]);
-}
-const narrowCoursework = window.matchMedia("(max-width: 800px)");
-function arrangeCoursework() {
-  const [left, right] = courseworkColumns;
-  if (narrowCoursework.matches) {
-    left.querySelector("tbody").replaceChildren(...courseworkChronologicalRows);
-    right.querySelector("tbody").replaceChildren();
-    left.setAttribute("aria-label", "Highlighted Coursework");
-    right.hidden = true;
-  } else {
-    courseworkColumns.forEach((table, index) => {
-      table.querySelector("tbody").replaceChildren(...courseworkOriginalRows[index]);
-      table.setAttribute("aria-label", `Coursework, column ${index + 1}`);
-      table.hidden = false;
-    });
+for (const courseworkTables of document.querySelectorAll(".coursework-tables")) {
+  const courseworkColumns = [...courseworkTables.querySelectorAll("table")];
+  const courseworkOriginalRows = courseworkColumns.map((table) => [...table.querySelectorAll("tbody tr")]);
+  const courseworkChronologicalRows = [];
+  for (let index = 0; index < Math.max(...courseworkOriginalRows.map((rows) => rows.length)); index++) {
+    for (const rows of courseworkOriginalRows) if (rows[index]) courseworkChronologicalRows.push(rows[index]);
   }
-  alignCourseworkRows();
-}
-narrowCoursework.addEventListener("change", arrangeCoursework);
-
-function alignCourseworkRows() {
-  const tables = [...courseworkTables.querySelectorAll("table")];
-  const rows = tables.map((table) => [...table.querySelectorAll("tbody tr")]);
-  for (const column of rows) for (const row of column) row.style.height = "";
-  if (window.matchMedia("(max-width: 800px)").matches) return;
-  for (let index = 0; index < Math.max(...rows.map((column) => column.length)); index++) {
-    const pair = rows.map((column) => column[index]).filter(Boolean);
-    const height = Math.max(...pair.map((row) => row.getBoundingClientRect().height));
-    for (const row of pair) row.style.height = `${height}px`;
+  const narrowCoursework = window.matchMedia("(max-width: 800px)");
+  function arrangeCoursework() {
+    const [left, right] = courseworkColumns;
+    if (narrowCoursework.matches) {
+      left.querySelector("tbody").replaceChildren(...courseworkChronologicalRows);
+      right.querySelector("tbody").replaceChildren();
+      left.setAttribute("aria-label", "Highlighted Coursework");
+      right.hidden = true;
+    } else {
+      courseworkColumns.forEach((table, index) => {
+        table.querySelector("tbody").replaceChildren(...courseworkOriginalRows[index]);
+        table.setAttribute("aria-label", `Coursework, column ${index + 1}`);
+        table.hidden = false;
+      });
+    }
+    alignCourseworkRows();
   }
-}
-let courseworkWidth;
-new ResizeObserver(([entry]) => {
-  if (entry.contentRect.width === courseworkWidth) return;
-  courseworkWidth = entry.contentRect.width;
-  alignCourseworkRows();
-}).observe(courseworkTables);
-document.fonts.ready.then(alignCourseworkRows);
+  narrowCoursework.addEventListener("change", arrangeCoursework);
 
-arrangeCoursework();
+  function alignCourseworkRows() {
+    const tables = [...courseworkTables.querySelectorAll("table")];
+    const rows = tables.map((table) => [...table.querySelectorAll("tbody tr")]);
+    for (const column of rows) for (const row of column) row.style.height = "";
+    if (window.matchMedia("(max-width: 800px)").matches) return;
+    for (let index = 0; index < Math.max(...rows.map((column) => column.length)); index++) {
+      const pair = rows.map((column) => column[index]).filter(Boolean);
+      const height = Math.max(...pair.map((row) => row.getBoundingClientRect().height));
+      for (const row of pair) row.style.height = `${height}px`;
+    }
+  }
+  let courseworkWidth;
+  new ResizeObserver(([entry]) => {
+    if (entry.contentRect.width === courseworkWidth) return;
+    courseworkWidth = entry.contentRect.width;
+    alignCourseworkRows();
+  }).observe(courseworkTables);
+  document.fonts.ready.then(alignCourseworkRows);
+
+  arrangeCoursework();
+}
+
 
 // Scrolling only sends pause commands. Playback resumes exclusively through
 // the player's own controls, including when returning to a previous position.

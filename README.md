@@ -55,3 +55,7 @@ Before sharing the site, replace the personal placeholders and add only the proj
 ### Work-in-progress projects
 
 For future work-in-progress entries in `app.js`, set `workInProgress: true`. When no images are supplied, the site automatically uses the shared `images/shared/work-in-progress.jpg` cover and displays a Work in Progress label. Add the normal category, title, date, and summary. Set the flag to false and provide project media when the work is complete.
+
+### Education entries
+
+Add education cards inside `.education-entries` in `index.html`, using the existing `.education-card` structure. Each card needs `data-start-date="YYYY-MM"` and `data-end-date="YYYY-MM"` (omit end date if unknown). The Education tab shows all cards newest first; Main automatically shows only the card with the latest start date, using end date to break ties. Coursework tables keep their two-column desktop and single-table mobile layouts.

@@ -624,3 +624,6 @@ body.viewer-open { overflow: hidden; }
 
 /* Let the intro end shortly after its content instead of reserving a tall row. */
 .intro { min-height: 0; padding-bottom: 12px; }
+
+.education-entries { display: grid; gap: 24px; }
+.education-card[hidden] { display: none; }
