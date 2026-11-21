@@ -614,3 +614,8 @@ body.viewer-open { overflow: hidden; }
 .education-section { padding-top: 24px; }
 
 .work-section:not(.education-section) { padding-top: 24px; }
+
+/* Lift the intro by 40px, clamping its content at the header on tight layouts. */
+.intro { margin-top: -40px; padding-top: 40px; min-height: calc(500px - (40px - 65px * 4 / 9)); }
+@media (min-width: 1200px) { .intro { min-height: calc(565px - (40px - 65px * 4 / 9)); } }
+@media (max-width: 760px) { .intro { margin-top: 0; padding-top: 0; min-height: auto; } }
