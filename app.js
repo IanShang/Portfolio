@@ -1359,11 +1359,19 @@ function scrollToSectionHeading(targetHeading = heading) {
   window.scrollTo({ top, behavior: "smooth" });
 }
 
+function scrollToMainTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  requestAnimationFrame(() => {
+    if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  });
+}
+
 function navigateToSection(event) {
   event.preventDefault();
   history.pushState(null, "", event.currentTarget.hash || window.location.pathname + window.location.search);
   render();
-  scrollToSectionHeading(getActiveCategory()?.id === "education" ? document.querySelector("#education-heading") : heading);
+  if (!window.location.hash) scrollToMainTop();
+  else scrollToSectionHeading(getActiveCategory()?.id === "education" ? document.querySelector("#education-heading") : heading);
 }
 
 function formatDate(date, label) {
@@ -1688,10 +1696,7 @@ document.querySelector(".brand").addEventListener("click", (event) => {
   event.preventDefault();
   history.pushState(null, "", window.location.pathname + window.location.search);
   render();
-  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  requestAnimationFrame(() => {
-    if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  });
+  scrollToMainTop();
 });
 document.querySelector("#explore-projects").addEventListener("click", (event) => {
   event.preventDefault();
