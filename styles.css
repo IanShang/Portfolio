@@ -484,7 +484,7 @@ h2 {
 /* Short images fit and center; tall documents stay readable and scroll. */
 .project-card .image-window { align-content: stretch; align-items: center; }
 .project-card .image-window img { width: 100%; height: 100%; object-fit: contain; }
-.project-card .image-window.is-scrollable { align-content: start; align-items: start; overscroll-behavior-y: contain; }
+.project-card .image-window.is-scrollable { align-content: start; align-items: start; overscroll-behavior-y: auto; }
 .project-card .image-window.is-scrollable img { height: auto; }
 .project-card.has-pack .image-window img { max-width: none; max-height: none; }
 

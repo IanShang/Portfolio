@@ -1454,6 +1454,17 @@ function renderProjectImages(project) {
       figure.setAttribute("aria-label", `${index + 1} of ${project.images.length}`);
     }
     const imageWindow = createElement("div", "image-window");
+    // Release wheel gestures to the page when an image reaches either edge.
+    if (image.src) imageWindow.addEventListener("wheel", (event) => {
+      if (event.ctrlKey || event.shiftKey || !event.deltaY || !event.cancelable) return;
+      const atTop = imageWindow.scrollTop <= 1;
+      const atBottom = imageWindow.scrollTop + imageWindow.clientHeight >= imageWindow.scrollHeight - 1;
+      if (!(event.deltaY < 0 ? atTop : atBottom)) return;
+      event.preventDefault();
+      const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 16
+        : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? window.innerHeight : 1;
+      window.scrollBy({ top: event.deltaY * unit, behavior: "instant" });
+    }, { passive: false });
     if (image.preziUrl) {
       const url = new URL(image.preziUrl);
       if (url.protocol !== "https:" || url.hostname !== "prezi.com" || !/^\/p\/embed\/[A-Za-z0-9_-]+\/$/.test(url.pathname)) throw new Error("Use a Prezi presentation embed URL.");
