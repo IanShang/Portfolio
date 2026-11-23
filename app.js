@@ -14,6 +14,22 @@ const categories = [
 // Add images as { src: "images/project.jpg", alt: "Describe the image", caption: "Optional caption" }.
 const projects = [
 {
+  "id": "boeing-737-landing-gear",
+  "category": "design",
+  "date": "2026-12-04",
+  "displayDate": "2026/10/5\u20132026/12/4",
+  "title": "Boeing 737 Landing Gear Redesign",
+  "summary": "As a part of our MIE301 Kinematics and Dynamics course, we had to redesign a chosen mechanism based on a complaint given by our professor about the current design. Our group picked the Boeing 737 landing gear and the complaint was that too many doors increased drag. So we simplified the mechanism to require less doors.",
+  "summaryLinks": [
+    {
+      "text": "professor",
+      "url": "https://www.linkedin.com/in/pakpongc/"
+    }
+  ],
+  "mediaFormat": "documents",
+  "images": []
+},
+{
   "id": "amazon-basics-bike-light-redesign",
   "category": "design",
   "date": "2026-12-08",
@@ -1597,6 +1613,21 @@ function renderProject(project) {
   title.append(entryLink);
   details.append(title);
   const summary = createElement("p", "project-summary", project.summary);
+  for (const source of project.summaryLinks || []) {
+    for (const node of [...summary.childNodes]) {
+      if (node.nodeType !== Node.TEXT_NODE) continue;
+      const index = node.textContent.indexOf(source.text);
+      if (index < 0) continue;
+      const link = createElement("a", "", source.text);
+      link.href = source.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      const text = node.textContent;
+      node.replaceWith(document.createTextNode(text.slice(0, index)), link, document.createTextNode(text.slice(index + source.text.length)));
+      break;
+    }
+  }
+
   details.append(summary);
   if (project.highlights?.length) {
     const list = createElement("ul", "project-highlights");

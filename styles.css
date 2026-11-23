@@ -627,3 +627,6 @@ body.viewer-open { overflow: hidden; }
 
 .education-entries { display: grid; gap: 24px; }
 .education-card[hidden] { display: none; }
+
+/* Consistent appearance for every hyperlink, including navigation. */
+a[href], a[href]:hover, a[href]:visited { color: #69b7ff; text-decoration: underline; text-underline-offset: 3px; }
