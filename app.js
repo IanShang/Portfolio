@@ -17,7 +17,6 @@ const projects = [
   "id": "boeing-737-landing-gear",
   "category": "design",
   "date": "2026-12-04",
-  "displayDate": "2026/10/5\u20132026/12/4",
   "title": "Boeing 737 Landing Gear Redesign",
   "summary": "As a part of our MIE301 Kinematics and Dynamics course, we had to redesign a chosen mechanism based on a complaint given by our professor about the current design. Our group picked the Boeing 737 landing gear and the complaint was that too many doors increased drag. So we simplified the mechanism to require less doors.",
   "summaryLinks": [
