@@ -451,10 +451,10 @@ const projects = [
       "caption": "Air density versus height — NASA-based piecewise model"
     }
   ],
-  "links": [
+  "summaryLinks": [
     {
-      "url": "https://www.grc.nasa.gov/www/k-12/airplane/atmosmet.html",
-      "label": "NASA Earth Atmosphere Model — metric units ↗"
+      "text": "NASA Glenn’s Earth Atmosphere Model",
+      "url": "https://www.grc.nasa.gov/www/k-12/airplane/atmosmet.html"
     }
   ]
 },
