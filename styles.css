@@ -628,5 +628,5 @@ body.viewer-open { overflow: hidden; }
 .education-entries { display: grid; gap: 24px; }
 .education-card[hidden] { display: none; }
 
-/* Consistent appearance for every hyperlink, including navigation. */
-a[href], a[href]:hover, a[href]:visited { color: #69b7ff !important; text-decoration: underline !important; text-underline-offset: 3px; }
+/* Blue underlined links within project descriptions. */
+.project-summary a[href], .project-summary a[href]:hover, .project-summary a[href]:visited { color: #69b7ff; text-decoration: underline; text-underline-offset: 3px; }

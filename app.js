@@ -27,7 +27,8 @@ const projects = [
     }
   ],
   "mediaFormat": "documents",
-  "images": []
+  "images": [],
+  "workInProgress": true
 },
 {
   "id": "amazon-basics-bike-light-redesign",
@@ -742,6 +743,12 @@ const projects = [
       "videoUrl": "https://youtube.com/shorts/GO8svQy4_HI",
       "alt": "Crank slider mechanism demonstration",
       "caption": "Crank slider in motion"
+    }
+  ],
+  "summaryLinks": [
+    {
+      "text": "George Brown Polytechnic",
+      "url": "https://www.linkedin.com/school/gbpolytech/home/"
     }
   ]
 },
