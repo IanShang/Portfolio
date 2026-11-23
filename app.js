@@ -121,7 +121,7 @@ const projects = [
   "category": "hands-on",
   "date": "2023-04",
   "title": "Engineering Physics Presentation",
-  "summary": "As a part of Engineering 11, we had to research a specific field of engineering and give a presentation on it. I chose to research Engineering Physics",
+  "summary": "As a part of Engineering 11, we had to research a specific field of engineering with a partner and give a presentation on it. My partner and I chose to research Engineering Physics.",
   "mediaFormat": "documents",
   "images": [
     {
