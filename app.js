@@ -613,7 +613,7 @@ const projects = [
   "id": "photography-winter-2023",
   "category": "arts",
   "date": "2023-12",
-  "displayDate": "Winter 2023/12/- to 2024/1/-",
+  "displayDate": "2023/12/- to 2024/1/-",
   "title": "Winter 2023 — UK and Ireland",
   "summary": "Photographs from a winter 2023 trip to the UK and Ireland, capturing lakes, waterfalls, mountains, and coastal landscapes.",
   "mediaFormat": "documents",
